@@ -284,6 +284,7 @@ const bookingData = {
                 status: "paid",
                 currency: "NZD",
                 amountDue: 0,
+                paidAmount: 180,
                 timing: "사전 결제 완료",
                 method: "unknown",
                 cashRequired: false,
