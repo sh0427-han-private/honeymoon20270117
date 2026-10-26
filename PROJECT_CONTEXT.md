@@ -104,7 +104,7 @@
 - 결제 상태: **사용자가 결제 완료로 확인**. 카드 원화 실청구액과 결제수단은 미확인.
 - Drive 문서: `03_Tours/20270123_ONSEN_HOT_POOLS_BOOKING.jpg` (예약확인서)
 - 예약자명·예약번호 등 민감한 정보는 GitHub 본문에 저장하지 않는다.
-- 웹앱 `booking-data.js`: `onsen` 예약 완료, `payment.status="paid"`, 현지 결제 필요금액 0, 제한 접근 예약확인서 연결
+- 웹앱 `booking-data.js`: `onsen` 예약 완료, `payment.status="paid"`, `paidAmount=180`, 현지 결제 필요금액 0, 제한 접근 예약확인서 연결. 예약 탭에 `결제 완료 · NZD 180` 표시
 
 ### Milford Sound — 최신 예약 기준
 
@@ -240,7 +240,7 @@ honeymoon270117
 - CAR를 선택하면 렌터카 카드가 다른 탭과 동일하게 필터/현지결제 영역 바로 아래로 올라온다.
 - 카드 상단: 날짜/구간 + 예약명
 - **현지에서 실제 결제가 필요한 항목만** 오른쪽에 작은 `현지결제 필요 · 금액` 배지를 표시한다.
-- `결제 완료` 배지는 표시하지 않는다.
+- `결제 완료` 배지는 일반 예약에는 표시하지 않는다. **단 Onsen Hot Pools(1/23) 카드에는 사용자 확인 기준 `결제 완료 · NZD 180` 배지를 표시한다.**
 - 결제 미확정 투어도 카드에 긴 결제 설명을 표시하지 않는다.
 - 위치 / 예약서 / 티켓 등 액션은 카드 아래에서 한 줄 가로 정렬한다.
 - 화면 폭이 좁으면 액션 행만 가로 스크롤한다.
@@ -323,8 +323,8 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 ## 11. PWA / Offline
 
 - `manifest.webmanifest` + `service-worker.js`
-- 현재 cache version: **`honeymoon-v38`**
-- `index.html`의 주요 자체 자산 query string은 **V38**로 갱신
+- 현재 cache version: **`honeymoon-v39`** (온센 예약·결제 표시 갱신)
+- `index.html`의 주요 자체 자산 query string은 **V38** 유지, 온센 결제 관련 `booking-data.js` / `booking-layout-v32.js`만 **V39**로 갱신
 - `reservation-data-v33.js`도 APP_SHELL에 포함
 - `trip-operations-v36.js` / `trip-operations-v36.css`도 APP_SHELL에 포함
 - `entry-guide-v37.js` / `entry-guide-v37.css`도 APP_SHELL에 포함
