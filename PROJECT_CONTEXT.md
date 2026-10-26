@@ -89,12 +89,22 @@
 고정:
 
 1. **Milford Sound Coach & Nature Cruise — Southern Discoveries** — 1/21 · 예약 완료
-2. **Onsen Hot Pools** — 1/23 오전
+2. **Onsen Hot Pools** — 1/23 09:00 · 예약 및 NZD 180 결제 완료(사용자 확인)
 3. **Rotorua Day Tour** — 1/27
 
 선호:
 
 - Waiheke Island — 1/28
+
+### Onsen Hot Pools — 예약·결제 확인
+
+- 일정: **2027-01-23 (토) 08:45 체크인 · 09:00 이용 시작**
+- 상품: **Original Onsen – Soak Only**, 성인 **2명**
+- 예약 총액: **NZD 180.00**
+- 결제 상태: **사용자가 결제 완료로 확인**. 카드 원화 실청구액과 결제수단은 미확인.
+- Drive 문서: `03_Tours/20270123_ONSEN_HOT_POOLS_BOOKING.jpg` (예약확인서)
+- 예약자명·예약번호 등 민감한 정보는 GitHub 본문에 저장하지 않는다.
+- 웹앱 `booking-data.js`: `onsen` 예약 완료, `payment.status="paid"`, `paidAmount=180`, 현지 결제 필요금액 0, 제한 접근 예약확인서 연결. 예약 탭에 `결제 완료 · NZD 180` 표시
 
 ### Milford Sound — 최신 예약 기준
 
@@ -230,7 +240,7 @@ honeymoon270117
 - CAR를 선택하면 렌터카 카드가 다른 탭과 동일하게 필터/현지결제 영역 바로 아래로 올라온다.
 - 카드 상단: 날짜/구간 + 예약명
 - **현지에서 실제 결제가 필요한 항목만** 오른쪽에 작은 `현지결제 필요 · 금액` 배지를 표시한다.
-- `결제 완료` 배지는 표시하지 않는다.
+- `결제 완료` 배지는 일반 예약에는 표시하지 않는다. **단 Onsen Hot Pools(1/23) 카드에는 사용자 확인 기준 `결제 완료 · NZD 180` 배지를 표시한다.**
 - 결제 미확정 투어도 카드에 긴 결제 설명을 표시하지 않는다.
 - 위치 / 예약서 / 티켓 등 액션은 카드 아래에서 한 줄 가로 정렬한다.
 - 화면 폭이 좁으면 액션 행만 가로 스크롤한다.
@@ -260,7 +270,7 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 - 항공 이동일에는 일정 상단에 국제선/국내선, 공항 이동, 출발·도착 현지시간, 출발 공항 길찾기와 티켓을 한 카드로 표시한다.
 - 터미널·체크인 카운터·탑승구는 변동 가능하므로 출발 당일 항공권과 항공사 앱에서 최종 확인하도록 표시한다.
 - 일정 항목에서 연결된 항공권, 숙소 영문 예약서, 투어 예약서, 렌터카 예약서를 바로 열 수 있다.
-- Onsen, Rotorua, Waiheke처럼 문서가 아직 연결되지 않은 일정에는 `예약정보 확인 필요`를 표시한다.
+- Rotorua, Waiheke처럼 문서가 아직 연결되지 않은 일정에는 `예약정보 확인 필요`를 표시한다. Onsen 예약확인서는 연결되어 있다.
 - `itinerary.js`의 `bookingKey`가 일정과 `booking-data.js` 예약 데이터를 연결한다.
 - `trip-operations-v36.js` / `trip-operations-v36.css`: 항공 이동 카드와 일정별 예약 문서 액션을 담당한다.
 
@@ -289,9 +299,9 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 
 - 항공: **6 / 6**
 - 숙박: **15 / 15**
-- 투어: **1 / 4**
+- 투어: **2 / 4**
 - 렌터카: **1 / 1**
-- 전체: **23 / 26**
+- 전체: **24 / 26**
 
 ---
 
@@ -313,8 +323,8 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 ## 11. PWA / Offline
 
 - `manifest.webmanifest` + `service-worker.js`
-- 현재 cache version: **`honeymoon-v38`**
-- `index.html`의 주요 자체 자산 query string은 **V38**로 갱신
+- 현재 cache version: **`honeymoon-v39`** (온센 예약·결제 표시 갱신)
+- `index.html`의 주요 자체 자산 query string은 **V38** 유지, 온센 결제 관련 `booking-data.js` / `booking-layout-v32.js`만 **V39**로 갱신
 - `reservation-data-v33.js`도 APP_SHELL에 포함
 - `trip-operations-v36.js` / `trip-operations-v36.css`도 APP_SHELL에 포함
 - `entry-guide-v37.js` / `entry-guide-v37.css`도 APP_SHELL에 포함
@@ -347,7 +357,7 @@ Drive 링크가 Public JS에 있어도 실제 파일 접근은 Google Drive `Res
 - [ ] Southern Discoveries Multi-Language Commentary 앱 및 이어폰 준비
 - [ ] Hertz 보증금 / pre-authorisation 실제 승인 금액 확인
 - [ ] Hertz 추가 운전자 필요 여부 / 카드 surcharge 적용 여부 확인
-- [ ] Onsen 예약 정보/문서/결제정보 반영
+- [x] Onsen 예약 정보/문서/결제정보 반영 — 2027-01-23 · NZD 180 · 사용자 결제완료 확인
 - [ ] Rotorua 상품/결제정보 확정
 - [ ] Waiheke 방식 확정
 - [ ] AUD / NZD 현금이 실제 필요한 항목 확인
