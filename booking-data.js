@@ -278,17 +278,22 @@ const bookingData = {
             time: "09:00",
             name: "Onsen Hot Pools",
             city: "Queenstown",
-            status: "예약 정보 미입력",
+            status: "예약 완료",
             mapQuery: "Onsen Hot Pools, 160 Arthurs Point Road, Queenstown, New Zealand",
             payment: {
-                status: "unknown",
+                status: "paid",
                 currency: "NZD",
-                amountDue: null,
-                timing: "결제 시점 확인 필요",
+                amountDue: 0,
+                timing: "사전 결제 완료",
                 method: "unknown",
-                cashRequired: false
+                cashRequired: false,
+                note: "Original Onsen – Soak Only · 성인 2명 · NZD 180.00 결제완료(사용자 확인). 원화 청구액 미확인"
             },
-            document: { fileName: "20270123_ONSEN_BOOKING.pdf", url: null },
+            document: {
+                label: "예약확인서",
+                fileName: "20270123_ONSEN_HOT_POOLS_BOOKING.jpg",
+                url: "https://drive.google.com/file/d/1rd3c6RKgkj4Xki_rl8iNfS0S_Qh8_NAM/view?usp=drivesdk"
+            },
             confirmationUrl: null
         },
         {
