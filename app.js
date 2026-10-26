@@ -587,6 +587,7 @@ const renderSelectedDay = () => {
         selectedSchedulePlaceName = availablePlaces[0]?.name || null;
     }
 
+    const planLabels = { fixed: "고정", planned: "계획", candidate: "후보" };
     const items = mappedItems.map(({ item, place }) => `
         <li
             class="timeline-item ${place ? "timeline-item--mappable" : ""} ${place?.name === selectedSchedulePlaceName ? "timeline-item--selected" : ""}"
@@ -596,7 +597,7 @@ const renderSelectedDay = () => {
             <div class="timeline-content">
                 <div class="timeline-meta">
                     <span class="type-badge type-${escapeHtml(item.type)}">${getTypeLabel(item.type)}</span>
-                    ${item.fixed ? '<span class="fixed-badge">고정</span>' : ""}
+                    <span class="plan-status plan-status--${escapeHtml(item.planStatus || (item.fixed ? "fixed" : "candidate"))}">${planLabels[item.planStatus || (item.fixed ? "fixed" : "candidate")] || "후보"}</span>
                     ${place ? '<span class="map-ready-badge">지도</span>' : ""}
                 </div>
                 <strong>${escapeHtml(item.title)}</strong>
@@ -626,6 +627,11 @@ const renderSelectedDay = () => {
                         `<span class="intensity-dot ${index < day.intensity ? "active" : ""}"></span>`
                     )).join("")}
                 </div>
+            </div>
+            <div class="schedule-plan-legend" aria-label="일정 상태 설명">
+                <span>고정 · 예약/운영 시각</span>
+                <span>계획 · 시간 조정 가능</span>
+                <span>후보 · 검토 중</span>
             </div>
             <ul class="timeline">${items}</ul>
         </article>

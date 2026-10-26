@@ -80,7 +80,7 @@
 - 결제 문서는 `02_Stays/20270124-20270125_FAIRLIE_AIRBNB_RECEIPT.pdf`
 - 웹앱에서는 `예약·결제 확인서`로 연결한다.
 - Public GitHub에는 Airbnb 확인 코드, 예약번호 등 민감정보를 저장하지 않는다.
-- **중요 확인사항:** Airbnb 문서에는 예약 인원이 `게스트 1명`으로 표기되어 있으므로 실제 투숙 인원 2명 등록 가능 여부를 여행 전 확인한다.
+- **실제 예약 인원은 2명으로 변경 완료(사용자 확인)**. 기존 Airbnb 문서에는 여전히 `게스트 1명`으로 표시되므로 최신 2명 예약확인서만 갱신하면 된다.
 
 ---
 
@@ -90,7 +90,7 @@
 
 1. **Milford Sound Coach & Nature Cruise — Southern Discoveries** — 1/21 · 예약 완료
 2. **Onsen Hot Pools** — 1/23 09:00 · 예약 및 NZD 180 결제 완료(사용자 확인)
-3. **Rotorua Day Tour** — 1/27
+3. **Rotorua Day Tour** — 1/27 방문 계획 · 상품·픽업/출발 시각 미확정, 미예약
 
 선호:
 
@@ -158,6 +158,17 @@ Milford 결제 완료 여부/최종 결제금액은 예약확인서만으로 확
 - 1/29 Auckland → Incheon
 
 세부 일정의 기준은 `itinerary.js`다.
+
+### 일정 분류 체계 (검토용 · 2026-10-27)
+
+- `days[].items[].planStatus`: `fixed`(고정), `planned`(계획), `candidate`(후보) 중 하나로 **모든 타임라인 항목**을 분류한다.
+- **고정:** 항공 이착륙, 확정 투어 픽업/시작, 온센, Hertz 수령·반납 등 예약 또는 운영 시간에 구속되는 일정. 변경 시 예약 확인이 필요하다.
+- **계획:** 이동 방향·행선지는 정했지만 시각은 조정 가능한 일정. 예약 완료 숙소의 **체크인 예상 시각**도 여기에 속하며, 숙소 자체가 미예약이라는 뜻은 아니다.
+- **후보:** 아직 동선·식당·방문 여부를 검토할 수 있는 임시 일정. 표기된 시간은 예약 시간이 아니다.
+- **예약/결제 상태는 `booking-data.js` 및 Google Budget에서 별도 관리**한다. `planStatus`만으로 예약 여부를 판단하지 않는다.
+- 로토루아 1/27은 계획(상품 미예약)이며 기존 `fixed: true`를 해제한다. 와이헤케 1/28은 후보이다.
+- 분류는 기존 초안에 대한 1차 라벨링으로, **장소·순서·시간 자체를 새로 확정한 것은 아니다.**
+- Google Schedule은 보조표이므로 상세 일정 최종 승인 후 동기화한다.
 
 ### Google Schedule Sheet
 
@@ -323,8 +334,8 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 ## 11. PWA / Offline
 
 - `manifest.webmanifest` + `service-worker.js`
-- 현재 cache version: **`honeymoon-v39`** (온센 예약·결제 표시 갱신)
-- `index.html`의 주요 자체 자산 query string은 **V38** 유지, 온센 결제 관련 `booking-data.js` / `booking-layout-v32.js`만 **V39**로 갱신
+- 현재 cache version: **`honeymoon-v40`** (일정 상태 분류)
+- `index.html`의 `itinerary.js`, `app.js`, `styles.css`는 **V40**으로 갱신. 온센 결제 관련 `booking-data.js` / `booking-layout-v32.js`는 기존 **V39** 유지
 - `reservation-data-v33.js`도 APP_SHELL에 포함
 - `trip-operations-v36.js` / `trip-operations-v36.css`도 APP_SHELL에 포함
 - `entry-guide-v37.js` / `entry-guide-v37.css`도 APP_SHELL에 포함
@@ -351,7 +362,8 @@ Drive 링크가 Public JS에 있어도 실제 파일 접근은 Google Drive `Res
 
 ## 13. 현재 TODO
 
-- [ ] **Fairlie Airbnb 실제 투숙 인원 2명 등록 가능 여부 확인 — 현재 문서에는 게스트 1명으로 표시**
+- [x] Fairlie Airbnb 예약 인원 2명 변경 완료(사용자 확인)
+- [ ] Fairlie Airbnb 최신 2명 예약확인서 확보·Drive 문서 교체(현재 파일은 1명 표기)
 - [ ] Milford Sound 결제 완료 여부/최종 결제금액 확인
 - [ ] 여행 직전 Southern Discoveries 06:45 숙소 픽업 및 07:00/19:30 공식 시간표 재확인
 - [ ] Southern Discoveries Multi-Language Commentary 앱 및 이어폰 준비

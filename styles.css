@@ -626,6 +626,7 @@ button {
 
 .type-badge,
 .fixed-badge,
+.plan-status,
 .info-label,
 .status,
 .map-ready-badge {
@@ -646,6 +647,33 @@ button {
     border-color: #d7bbb0;
     background: var(--peach-soft);
     color: #825845;
+}
+
+.plan-status--fixed {
+    border-color: #b8c8b5;
+    background: var(--sage-soft);
+    color: #455b43;
+}
+
+.plan-status--planned {
+    border-color: var(--line-strong);
+    background: transparent;
+    color: #555b5b;
+}
+
+.plan-status--candidate {
+    border-style: dashed;
+    color: var(--muted);
+}
+
+.schedule-plan-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 13px;
+    padding: 10px 2px 5px;
+    color: var(--muted);
+    font-size: 0.67rem;
+    line-height: 1.45;
 }
 
 .type-flight {
