@@ -1,3 +1,5 @@
+// planStatus: fixed = 예약/운영 시각 고정, planned = 큰 방향 유지·시간 조정 가능, candidate = 검토 중.
+// 예약·결제 완료 여부는 별도 booking-data.js에서 관리한다.
 const tripData = {
     cities: [
         "Sydney",
@@ -18,55 +20,55 @@ const tripData = {
                 {
                     time: "03:15",
                     title: "용인동백 두산위브더제니스 출발",
-                    type: "transport",
+                    type: "transport", planStatus: "planned",
                     note: "택시/자차 권장 · 새벽 이동 약 1시간 20~40분 예상, 교통 변수 포함 여유 있게 출발"
                 },
                 {
                     time: "05:00",
                     title: "인천국제공항 제2여객터미널 도착",
-                    type: "transport",
+                    type: "transport", planStatus: "planned",
                     note: "08:00 국제선 출발 3시간 전 도착 목표"
                 },
                 {
                     time: "05:10",
                     title: "대한항공 비즈니스 체크인 · 수하물 위탁",
-                    type: "flight",
+                    type: "flight", planStatus: "planned",
                     note: "체크인 후 보안검색·출국심사 진행"
                 },
                 {
                     time: "06:00",
                     title: "대한항공 프레스티지 라운지 · 아침식사 & 휴식",
-                    type: "lounge",
+                    type: "lounge", planStatus: "candidate",
                     note: "T2 프레스티지 서편 라운지 기준 · 현재 04:00부터 운영, 약 1시간 이상 여유롭게 이용"
                 },
                 {
                     time: "07:20",
                     title: "탑승구 이동 · 탑승 준비",
-                    type: "note"
+                    type: "note", planStatus: "planned"
                 },
                 {
                     time: "08:00",
                     title: "인천 출발",
-                    type: "flight",
+                    type: "flight", planStatus: "fixed",
                     bookingKey: "icn-syd",
                     note: "대한항공 비즈니스"
                 },
                 {
                     time: "기내",
                     title: "호주 Incoming Passenger Card 작성",
-                    type: "note",
+                    type: "note", planStatus: "planned",
                     note: "KE401 기내 배포 시 영어로 작성 · 더보기 > 입국 가이드의 IPC 항목 참고"
                 },
                 {
                     time: "20:05",
                     title: "시드니 도착",
-                    type: "flight",
+                    type: "flight", planStatus: "fixed",
                     note: "입국심사와 수하물 수령 후 호텔 이동"
                 },
                 {
                     time: "22:00",
                     title: "메리톤 스위트 캠벨 스트리트 체크인",
-                    type: "hotel",
+                    type: "hotel", planStatus: "planned",
                     bookingKey: "sydney-meriton"
                 }
             ]
@@ -78,12 +80,12 @@ const tripData = {
             title: "시드니 도심 & 하버",
             intensity: 3,
             items: [
-                { time: "09:00", title: "브런치", type: "meal" },
-                { time: "10:00", title: "Queen Victoria Building", type: "sightseeing" },
-                { time: "12:00", title: "Sydney Fish Market 점심", type: "meal" },
-                { time: "14:00", title: "Barangaroo · Darling Harbour 산책", type: "sightseeing" },
-                { time: "16:30", title: "The Rocks", type: "sightseeing" },
-                { time: "19:30", title: "Sydney Observatory 일몰", type: "sightseeing" }
+                { time: "09:00", title: "브런치", type: "meal", planStatus: "candidate" },
+                { time: "10:00", title: "Queen Victoria Building", type: "sightseeing", planStatus: "candidate" },
+                { time: "12:00", title: "Sydney Fish Market 점심", type: "meal", planStatus: "candidate" },
+                { time: "14:00", title: "Barangaroo · Darling Harbour 산책", type: "sightseeing", planStatus: "candidate" },
+                { time: "16:30", title: "The Rocks", type: "sightseeing", planStatus: "candidate" },
+                { time: "19:30", title: "Sydney Observatory 일몰", type: "sightseeing", planStatus: "candidate" }
             ]
         },
         {
@@ -93,13 +95,13 @@ const tripData = {
             title: "본다이 & 오페라하우스",
             intensity: 3,
             items: [
-                { time: "10:00", title: "Surry Hills 산책 & 브런치", type: "meal" },
-                { time: "11:00", title: "NZ Traveller Declaration 제출", type: "note", note: "1/20 10:55 NZ234 출발 24시간 전부터 제출 가능 · 두 사람 각각 작성 · 더보기 > 입국 가이드 참고" },
-                { time: "12:00", title: "Bondi Beach", type: "sightseeing" },
-                { time: "15:30", title: "호텔 복귀 · 샤워 · 휴식", type: "hotel" },
-                { time: "17:00", title: "Royal Botanic Garden", type: "sightseeing" },
-                { time: "18:30", title: "Sydney Opera House · Circular Quay", type: "sightseeing" },
-                { time: "19:30", title: "로맨틱 디너 & 와인", type: "meal" }
+                { time: "10:00", title: "Surry Hills 산책 & 브런치", type: "meal", planStatus: "candidate" },
+                { time: "11:00", title: "NZ Traveller Declaration 제출", type: "note", planStatus: "planned", note: "1/20 10:55 NZ234 출발 24시간 전부터 제출 가능 · 두 사람 각각 작성 · 더보기 > 입국 가이드 참고" },
+                { time: "12:00", title: "Bondi Beach", type: "sightseeing", planStatus: "candidate" },
+                { time: "15:30", title: "호텔 복귀 · 샤워 · 휴식", type: "hotel", planStatus: "candidate" },
+                { time: "17:00", title: "Royal Botanic Garden", type: "sightseeing", planStatus: "candidate" },
+                { time: "18:30", title: "Sydney Opera House · Circular Quay", type: "sightseeing", planStatus: "candidate" },
+                { time: "19:30", title: "로맨틱 디너 & 와인", type: "meal", planStatus: "candidate" }
             ]
         },
         {
@@ -109,10 +111,10 @@ const tripData = {
             title: "시드니 → 퀸스타운",
             intensity: 1,
             items: [
-                { time: "07:30", title: "호텔 출발 · 시드니 공항 이동", type: "transport" },
-                { time: "10:55", title: "시드니 출발", type: "flight", bookingKey: "syd-zqn" },
-                { time: "16:00", title: "퀸스타운 도착", type: "flight" },
-                { time: "18:00", title: "숙소 체크인 & Lake Wakatipu 산책", type: "hotel", bookingKey: "queenstown-lakeview" }
+                { time: "07:30", title: "호텔 출발 · 시드니 공항 이동", type: "transport", planStatus: "planned" },
+                { time: "10:55", title: "시드니 출발", type: "flight", planStatus: "fixed", bookingKey: "syd-zqn" },
+                { time: "16:00", title: "퀸스타운 도착", type: "flight", planStatus: "fixed" },
+                { time: "18:00", title: "숙소 체크인 & Lake Wakatipu 산책", type: "hotel", planStatus: "planned", bookingKey: "queenstown-lakeview" }
             ]
         },
         {
@@ -126,19 +128,19 @@ const tripData = {
                 {
                     time: "05:00",
                     title: "기상 · 투어 준비",
-                    type: "note",
+                    type: "note", planStatus: "planned",
                     note: "준비물: 따뜻한 방수 재킷 · 미끄럼 방지 신발 · 선크림 · 벌레기피제 · 이어폰"
                 },
                 {
                     time: "06:35",
                     title: "Hampshire Holiday Parks Queenstown Lakeview 리셉션 대기",
-                    type: "note",
+                    type: "note", planStatus: "fixed",
                     note: "예약확인서 기준 픽업 10분 전까지 리셉션 대기"
                 },
                 {
                     time: "06:45",
                     title: "Hampshire Holiday Parks Queenstown Lakeview 픽업",
-                    type: "tour",
+                    type: "tour", planStatus: "fixed",
                     bookingKey: "milford",
                     fixed: true,
                     note: "택시 픽업 → Southern Discoveries Queenstown Visitor Centre · St Omer Wharf, 110 Beach Street"
@@ -146,27 +148,27 @@ const tripData = {
                 {
                     time: "07:00",
                     title: "Southern Discoveries Queenstown Visitor Centre 코치 출발",
-                    type: "transport",
+                    type: "transport", planStatus: "fixed",
                     fixed: true,
                     note: "공식 Coach & Nature Cruise 상품 일정 기준 · Milford Road 경관 정차는 교통/운영상황에 따라 변동"
                 },
                 {
                     time: "투어 중",
                     title: "Milford Sound Nature Cruise · To Kai Lunch",
-                    type: "tour",
+                    type: "tour", planStatus: "fixed",
                     fixed: true,
                     note: "Nature Cruise + To Kai Lunch 2인 포함 · 한국어 코멘터리 앱 사용 가능(이어폰 필요)"
                 },
                 {
                     time: "19:30",
                     title: "Southern Discoveries Queenstown Visitor Centre 복귀 예정",
-                    type: "transport",
+                    type: "transport", planStatus: "planned",
                     note: "공식 상품 일정 기준 Queenstown 19:30 복귀 · 교통 및 경관 정차 상황에 따라 변동 가능"
                 },
                 {
                     time: "이후",
                     title: "숙소 이동 · 휴식",
-                    type: "hotel"
+                    type: "hotel", planStatus: "planned"
                 }
             ]
         },
@@ -177,10 +179,10 @@ const tripData = {
             title: "퀸스타운 휴식 & 렌터카 수령",
             intensity: 2,
             items: [
-                { time: "09:30", title: "늦은 기상 & 브런치", type: "meal" },
-                { time: "11:30", title: "Skyline Gondola 또는 Queenstown Gardens", type: "sightseeing" },
-                { time: "15:00", title: "렌터카 수령", type: "car", bookingKey: "queenstown-christchurch", note: "Hertz Queenstown Downtown · Compact SUV (G0) · Kia Seltos 또는 동급 · 차량손실 면책 프로그램 포함" },
-                { time: "18:00", title: "Queenstown 저녁 · 와인", type: "meal" }
+                { time: "09:30", title: "늦은 기상 & 브런치", type: "meal", planStatus: "candidate" },
+                { time: "11:30", title: "Skyline Gondola 또는 Queenstown Gardens", type: "sightseeing", planStatus: "candidate" },
+                { time: "15:00", title: "렌터카 수령", type: "car", planStatus: "fixed", bookingKey: "queenstown-christchurch", note: "Hertz Queenstown Downtown · Compact SUV (G0) · Kia Seltos 또는 동급 · 차량손실 면책 프로그램 포함" },
+                { time: "18:00", title: "Queenstown 저녁 · 와인", type: "meal", planStatus: "candidate" }
             ]
         },
         {
@@ -190,12 +192,12 @@ const tripData = {
             title: "온센 → 애로우타운 → 와나카",
             intensity: 3,
             items: [
-                { time: "08:45", title: "Onsen Hot Pools 도착", type: "tour", fixed: true },
-                { time: "09:00", title: "Onsen Hot Pools", type: "tour", bookingKey: "onsen", fixed: true },
-                { time: "10:30", title: "Arrowtown 산책 & 점심", type: "sightseeing" },
-                { time: "12:30", title: "Crown Range · Cardrona 경유", type: "drive" },
-                { time: "15:00", title: "Edgewater Wanaka 체크인", type: "hotel", bookingKey: "wanaka-edgewater" },
-                { time: "17:00", title: "Lake Wanaka · That Wanaka Tree 산책", type: "sightseeing" }
+                { time: "08:45", title: "Onsen Hot Pools 도착", type: "tour", planStatus: "fixed", fixed: true },
+                { time: "09:00", title: "Onsen Hot Pools", type: "tour", planStatus: "fixed", bookingKey: "onsen", fixed: true },
+                { time: "10:30", title: "Arrowtown 산책 & 점심", type: "sightseeing", planStatus: "candidate" },
+                { time: "12:30", title: "Crown Range · Cardrona 경유", type: "drive", planStatus: "planned" },
+                { time: "15:00", title: "Edgewater Wanaka 체크인", type: "hotel", planStatus: "planned", bookingKey: "wanaka-edgewater" },
+                { time: "17:00", title: "Lake Wanaka · That Wanaka Tree 산책", type: "sightseeing", planStatus: "candidate" }
             ]
         },
         {
@@ -205,11 +207,11 @@ const tripData = {
             title: "와나카 → 푸카키 → 테카포 → 페얼리",
             intensity: 3,
             items: [
-                { time: "09:30", title: "Wanaka 출발", type: "drive" },
-                { time: "12:00", title: "Lake Pukaki · 연어 점심", type: "meal" },
-                { time: "15:00", title: "Lake Tekapo 도착", type: "sightseeing" },
-                { time: "15:30", title: "Church of the Good Shepherd · 호수 산책", type: "sightseeing" },
-                { time: "19:00", title: "Fairlie 숙소 이동 & 체크인", type: "hotel", bookingKey: "fairlie-airbnb" }
+                { time: "09:30", title: "Wanaka 출발", type: "drive", planStatus: "planned" },
+                { time: "12:00", title: "Lake Pukaki · 연어 점심", type: "meal", planStatus: "candidate" },
+                { time: "15:00", title: "Lake Tekapo 도착", type: "sightseeing", planStatus: "planned" },
+                { time: "15:30", title: "Church of the Good Shepherd · 호수 산책", type: "sightseeing", planStatus: "candidate" },
+                { time: "19:00", title: "Fairlie 숙소 이동 & 체크인", type: "hotel", planStatus: "planned", bookingKey: "fairlie-airbnb" }
             ]
         },
         {
@@ -219,11 +221,11 @@ const tripData = {
             title: "페얼리 → 크라이스트처치",
             intensity: 2,
             items: [
-                { time: "09:30", title: "Fairlie 출발", type: "drive" },
-                { time: "10:30", title: "Geraldine 카페", type: "meal" },
-                { time: "13:30", title: "Christchurch 도착 · 호텔 짐 보관", type: "hotel", bookingKey: "christchurch-breakfree" },
-                { time: "15:00", title: "Hertz Christchurch Downtown 렌터카 반납", type: "car", bookingKey: "queenstown-christchurch", note: "Unit 4, 150 Kilmore St · 영업시간 14:00-17:00" },
-                { time: "15:30", title: "Riverside Market · Cathedral Square · New Regent Street", type: "sightseeing" }
+                { time: "09:30", title: "Fairlie 출발", type: "drive", planStatus: "planned" },
+                { time: "10:30", title: "Geraldine 카페", type: "meal", planStatus: "candidate" },
+                { time: "13:30", title: "Christchurch 도착 · 호텔 짐 보관", type: "hotel", planStatus: "planned", bookingKey: "christchurch-breakfree" },
+                { time: "15:00", title: "Hertz Christchurch Downtown 렌터카 반납", type: "car", planStatus: "fixed", bookingKey: "queenstown-christchurch", note: "Unit 4, 150 Kilmore St · 영업시간 14:00-17:00" },
+                { time: "15:30", title: "Riverside Market · Cathedral Square · New Regent Street", type: "sightseeing", planStatus: "candidate" }
             ]
         },
         {
@@ -233,12 +235,12 @@ const tripData = {
             title: "크라이스트처치 → 오클랜드",
             intensity: 1,
             items: [
-                { time: "09:30", title: "택시로 Christchurch Airport 이동", type: "transport" },
-                { time: "12:00", title: "크라이스트처치 출발", type: "flight", bookingKey: "chc-akl" },
-                { time: "13:25", title: "오클랜드 도착", type: "flight" },
-                { time: "15:00", title: "Hilton Auckland 체크인", type: "hotel", bookingKey: "auckland-hilton" },
-                { time: "17:00", title: "Commercial Bay 가족 선물 쇼핑", type: "shopping" },
-                { time: "19:00", title: "Viaduct Harbour 저녁", type: "meal" }
+                { time: "09:30", title: "택시로 Christchurch Airport 이동", type: "transport", planStatus: "planned" },
+                { time: "12:00", title: "크라이스트처치 출발", type: "flight", planStatus: "fixed", bookingKey: "chc-akl" },
+                { time: "13:25", title: "오클랜드 도착", type: "flight", planStatus: "fixed" },
+                { time: "15:00", title: "Hilton Auckland 체크인", type: "hotel", planStatus: "planned", bookingKey: "auckland-hilton" },
+                { time: "17:00", title: "Commercial Bay 가족 선물 쇼핑", type: "shopping", planStatus: "candidate" },
+                { time: "19:00", title: "Viaduct Harbour 저녁", type: "meal", planStatus: "candidate" }
             ]
         },
         {
@@ -247,10 +249,9 @@ const tripData = {
             city: "Auckland",
             title: "로토루아 투어",
             intensity: 5,
-            fixed: true,
             items: [
-                { time: "07:00", title: "Rotorua 당일 투어 출발", type: "tour", bookingKey: "rotorua", fixed: true },
-                { time: "20:00", title: "Auckland 복귀 · 호텔 휴식", type: "hotel" }
+                { time: "07:00", title: "Rotorua 당일 투어 출발", type: "tour", planStatus: "planned", bookingKey: "rotorua", note: "투어 상품·픽업 장소·출발 시각 미확정(07:00 임시 배치)" },
+                { time: "20:00", title: "Auckland 복귀 · 호텔 휴식", type: "hotel", planStatus: "planned" }
             ]
         },
         {
@@ -260,10 +261,10 @@ const tripData = {
             title: "Waiheke Island",
             intensity: 3,
             items: [
-                { time: "09:30", title: "Downtown Ferry Terminal", type: "transport" },
-                { time: "10:30", title: "Waiheke Island · 와이너리 & 점심", type: "tour", bookingKey: "waiheke" },
-                { time: "17:30", title: "Auckland 복귀", type: "transport" },
-                { time: "19:00", title: "여행 마지막 저녁", type: "meal" }
+                { time: "09:30", title: "Downtown Ferry Terminal", type: "transport", planStatus: "candidate" },
+                { time: "10:30", title: "Waiheke Island · 와이너리 & 점심", type: "tour", planStatus: "candidate", bookingKey: "waiheke" },
+                { time: "17:30", title: "Auckland 복귀", type: "transport", planStatus: "candidate" },
+                { time: "19:00", title: "여행 마지막 저녁", type: "meal", planStatus: "candidate" }
             ]
         },
         {
@@ -273,9 +274,9 @@ const tripData = {
             title: "귀국",
             intensity: 1,
             items: [
-                { time: "08:00", title: "Hilton Auckland 출발 · 공항 이동", type: "transport" },
-                { time: "11:45", title: "오클랜드 출발", type: "flight", bookingKey: "akl-icn" },
-                { time: "19:40", title: "인천 도착", type: "flight" }
+                { time: "08:00", title: "Hilton Auckland 출발 · 공항 이동", type: "transport", planStatus: "planned" },
+                { time: "11:45", title: "오클랜드 출발", type: "flight", planStatus: "fixed", bookingKey: "akl-icn" },
+                { time: "19:40", title: "인천 도착", type: "flight", planStatus: "fixed" }
             ]
         }
     ],
