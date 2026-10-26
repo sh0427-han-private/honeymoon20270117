@@ -20,7 +20,13 @@
         && isAmount(payment?.amountDue)
     );
 
-    const paymentBadge = (payment) => {
+    const paymentBadge = (payment, showPaid = false) => {
+        if (showPaid && payment?.status === "paid" && isAmount(payment?.paidAmount)) {
+            const badge = document.createElement("div");
+            badge.className = "booking-payment booking-payment-paid";
+            badge.textContent = `결제 완료 · ${formatMoney(payment.currency, payment.paidAmount)}`;
+            return badge;
+        }
         if (!isLocalPayment(payment)) return null;
         const badge = document.createElement("div");
         badge.className = "booking-payment booking-payment-local";
@@ -28,10 +34,10 @@
         return badge;
     };
 
-    const syncCompactPayment = (card, payment) => {
+    const syncCompactPayment = (card, payment, showPaid = false) => {
         if (!card) return;
         card.querySelectorAll(".booking-payment").forEach((node) => node.remove());
-        const badge = paymentBadge(payment);
+        const badge = paymentBadge(payment, showPaid);
         if (!badge) return;
         const actions = card.querySelector(".booking-actions");
         if (actions) actions.insertAdjacentElement("beforebegin", badge);
@@ -43,7 +49,8 @@
             syncCompactPayment(card, bookingData.hotels?.[index]?.payment);
         });
         [...document.querySelectorAll("#tour-list .booking-tour-card")].forEach((card, index) => {
-            syncCompactPayment(card, bookingData.tours?.[index]?.payment);
+            const tour = bookingData.tours?.[index];
+            syncCompactPayment(card, tour?.payment, tour?.key === "onsen");
         });
         syncCompactPayment(
             document.querySelector("#rental-list .booking-rental-card"),
