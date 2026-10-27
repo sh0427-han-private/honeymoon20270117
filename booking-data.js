@@ -300,16 +300,17 @@ const bookingData = {
         {
             key: "rotorua",
             date: "1/27",
-            time: "07:00",
-            name: "Rotorua Day Tour",
+            time: "07:00 (임시)",
+            name: "Wai-O-Tapu + Te Puia + Māori Haka · Expedigo",
             city: "Auckland ↔ Rotorua",
-            status: "예약 정보 미입력",
+            status: "미예약 · 마이리얼트립 예약 예정",
             mapQuery: "Rotorua, New Zealand",
+            bookingUrl: "https://experiences.myrealtrip.com/products/6067970",
             payment: {
                 status: "unknown",
                 currency: "NZD",
                 amountDue: null,
-                timing: "결제 시점 확인 필요",
+                timing: "마이리얼트립에서 예약/결제 예정 · 아직 미예약/미결제, 가격 미확정",
                 method: "unknown",
                 cashRequired: false
             },

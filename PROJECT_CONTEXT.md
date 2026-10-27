@@ -4,7 +4,7 @@
 > 작업 시작 시 **이 파일을 먼저 읽고, 실제 웹앱 일정 데이터는 `itinerary.js`를 함께 확인**한다.
 > 사용자의 최신 요청이 이 문서와 충돌하면 최신 요청이 우선한다.
 >
-> 마지막 정리 기준: 2026-10-27 · V44
+> 마지막 정리 기준: 2026-10-27 · V45
 
 ---
 
@@ -90,11 +90,20 @@
 
 1. **Milford Sound Coach & Nature Cruise — Southern Discoveries** — 1/21 · 예약 완료
 2. **Onsen Hot Pools** — 1/23 09:00 · 예약 및 NZD 180 결제 완료(사용자 확인)
-3. **Rotorua Day Tour** — 1/27 방문 계획 · 상품·픽업/출발 시각 미확정, 미예약
+3. **Rotorua Day Tour** — 1/27 방문 계획 · Expedigo Wai-O-Tapu + Te Puia + Māori Haka 상품을 **마이리얼트립에서 예약하기로 결정**. 실제 예약·결제는 아직 미완료, 픽업/출발 시각 미확정
 
 선호:
 
-- Waiheke Island — 1/28
+- Waiheke Island — 1/28 (방문/와이너리/페리 모두 후보, 아직 미예약)
+
+### Rotorua Day Tour — 예약처 결정 · 미예약 (2026-10-27)
+
+- 여행일: **2027-01-27(수)**, 성인 2명, 오클랜드 출발·왕복 계획.
+- 사용자 선택: 운영사 **Expedigo**, **Wai-O-Tapu + Te Puia + 마오리 하카 공연** 소그룹 상품, **마이리얼트립에서 예약 예정**. '예약처/상품 선택'은 확정됐지만 **실제 예약·결제 미완료**.
+- 예약 상품: `https://experiences.myrealtrip.com/products/6067970` (상품번호 6067970). 상품 페이지에 호텔 픽업/드롭, 와이오타푸 입장료 및 테푸이아·하카 포함; 점심/음료 불포함.
+- 예약 전 확인: **2027-01-27 2인 결제 총액**, 해당 날짜 운영, **Hilton Auckland 픽업/드롭 가능 여부와 정확한 픽업 시각**(웹앱 07:00은 임시 시각), 투어 종료/복귀 시각, 식사시간 및 취소/환불 규정.
+- `itinerary.js` 1/27 상품명과 마이리얼트립 예약 링크를 추가하되 `planStatus=planned` 유지. `booking-data.js`에서 미예약·예정 상태를 명시, 예약 확인서 링크는 null 그대로 보존.
+- 비교 검토 상태인 1/28 와이헤케섬은 아직 확정하지 않아 `itinerary.js` 방문 시각/장소 변경 금지.
 
 ### Onsen Hot Pools — 예약·결제 확인
 
@@ -352,8 +361,8 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 ## 11. PWA / Offline
 
 - `manifest.webmanifest` + `service-worker.js`
-- 현재 cache version: **`honeymoon-v44`** (03:20 기상·Uber/DiDi 픽업 안내)
-- `index.html`의 `itinerary.js`는 **V44**, `app.js`·`styles.css`는 V43 유지. 전체 일정표 JS/CSS는 V41 유지, 온센 결제 관련 파일은 V39 유지
+- 현재 cache version: **`honeymoon-v45`** (03:20 기상·Uber/DiDi 픽업 안내)
+- `index.html`의 `itinerary.js`, `app.js`, `booking-data.js`는 **V45**, `styles.css`는 V43 유지. 전체 일정표 JS/CSS는 V41 유지, 온센 결제 관련 파일은 V39 유지
 - `reservation-data-v33.js`도 APP_SHELL에 포함
 - `trip-operations-v36.js` / `trip-operations-v36.css`도 APP_SHELL에 포함
 - `entry-guide-v37.js` / `entry-guide-v37.css`도 APP_SHELL에 포함
@@ -393,7 +402,7 @@ Drive 링크가 Public JS에 있어도 실제 파일 접근은 Google Drive `Res
 - [ ] Hertz 보증금 / pre-authorisation 실제 승인 금액 확인
 - [ ] Hertz 추가 운전자 필요 여부 / 카드 surcharge 적용 여부 확인
 - [x] Onsen 예약 정보/문서/결제정보 반영 — 2027-01-23 · NZD 180 · 사용자 결제완료 확인
-- [ ] Rotorua 상품/결제정보 확정
+- [ ] **1/27 로토루아 Expedigo Wai-O-Tapu + Te Puia + Haka 투어 마이리얼트립에서 성인 2명 예약·결제** (https://experiences.myrealtrip.com/products/6067970). Hilton Auckland 픽업과 실제 출발·복귀 시간, 점심 불포함, 총액·취소 규정 확인
 - [ ] Waiheke 방식 확정
 - [ ] AUD / NZD 현금이 실제 필요한 항목 확인
 - [ ] 주요 저녁 식당 확정

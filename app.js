@@ -609,7 +609,7 @@ const renderSelectedDay = () => {
                 </div>
                 <strong>${escapeHtml(item.title)}</strong>
                 ${item.note ? `<p>${escapeHtml(item.note)}</p>` : ""}
-                ${item.guideUrl?.startsWith("https://www.sydneyairport.com.au/") ? `<a class="timeline-guide-link" href="${escapeHtml(item.guideUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.guideLabel || "공식 안내 보기")} ↗</a>` : ""}
+                ${(item.guideUrl?.startsWith("https://www.sydneyairport.com.au/") || item.guideUrl?.startsWith("https://experiences.myrealtrip.com/products/")) ? `<a class="timeline-guide-link" href="${escapeHtml(item.guideUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.guideLabel || "공식 안내 보기")} ↗</a>` : ""}
             </div>
         </li>
     `).join("");
