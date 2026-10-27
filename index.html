@@ -15,6 +15,7 @@
     <link rel="apple-touch-icon" href="app-icon.svg?v=20260922-v38">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
     <link rel="stylesheet" href="styles.css?v=20261027-v40">
+    <link rel="stylesheet" href="schedule-overview-v41.css?v=20261027-v41">
     <link rel="stylesheet" href="enhancements.css?v=20260922-v38">
     <link rel="stylesheet" href="booking-apps.css?v=20260922-v38">
     <link rel="stylesheet" href="personalization.css?v=20260922-v38">
@@ -72,8 +73,15 @@
 
             <section class="tab-panel" id="schedule-panel" hidden aria-hidden="true">
                 <div class="section-heading"><div><p class="section-kicker">DAILY PLAN</p><h2>날짜별 일정</h2></div><button type="button" id="jump-today" class="text-button">오늘 / 다음</button></div>
-                <div id="date-strip" class="date-strip" aria-label="날짜 선택"></div>
-                <div id="selected-day"></div>
+                <div id="schedule-view-switch" class="schedule-view-switch" role="tablist" aria-label="일정 보기 방식">
+                    <button type="button" class="active" role="tab" id="schedule-day-tab" data-schedule-view="day" aria-controls="schedule-day-view" aria-selected="true">하루 일정</button>
+                    <button type="button" role="tab" id="schedule-all-tab" data-schedule-view="all" aria-controls="schedule-overview" aria-selected="false" tabindex="-1">전체 일정</button>
+                </div>
+                <div id="schedule-day-view" role="tabpanel" aria-labelledby="schedule-day-tab">
+                    <div id="date-strip" class="date-strip" aria-label="날짜 선택"></div>
+                    <div id="selected-day"></div>
+                </div>
+                <section id="schedule-overview" role="tabpanel" aria-labelledby="schedule-all-tab" hidden></section>
             </section>
 
             <section class="tab-panel" id="map-panel" hidden aria-hidden="true">
@@ -114,7 +122,7 @@
     <noscript><div class="noscript-note">이 일정 페이지는 JavaScript가 필요합니다.</div></noscript>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="itinerary.js?v=20261027-v40"></script>
-    <script src="app.js?v=20261027-v40"></script>
+    <script src="app.js?v=20261027-v41"></script>
     <script src="schedule-map-v32.js?v=20260922-v38"></script>
     <script src="time-context.js?v=20260922-v38"></script>
     <script src="schedule-fixes.js?v=20260922-v38"></script>
@@ -134,5 +142,6 @@
     <script src="app-ux-v26.js?v=20260922-v38"></script>
     <script src="flight-stack-v35.js?v=20260922-v38"></script>
     <script src="trip-operations-v36.js?v=20260922-v38"></script>
+    <script src="schedule-overview-v41.js?v=20261027-v41"></script>
 </body>
 </html>

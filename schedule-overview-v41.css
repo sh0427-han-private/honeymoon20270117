@@ -1,0 +1,192 @@
+/* V41 · Unified trip hour grid, sourced from tripData.days */
+.schedule-view-switch {
+    display: inline-flex;
+    gap: 4px;
+    margin: 0 0 19px;
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.45);
+}
+.schedule-view-switch button {
+    min-width: 106px;
+    padding: 9px 16px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-weight: 760;
+    cursor: pointer;
+}
+.schedule-view-switch button.active {
+    background: var(--black);
+    color: #fff;
+}
+.schedule-view-switch button:focus-visible,
+.schedule-overview-filter:focus-visible,
+.schedule-overview-event:focus-visible {
+    outline: 2px solid var(--black);
+    outline-offset: 3px;
+}
+#schedule-day-view[hidden],
+#schedule-overview[hidden],
+#jump-today[hidden] { display: none !important; }
+.schedule-overview-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 3px 0 14px;
+}
+.schedule-overview-heading h3 { margin: 0; font-size: 1.2rem; }
+.schedule-overview-heading p,
+.schedule-overview-guide,
+.schedule-overview-footnote {
+    color: var(--muted);
+    font-size: 0.72rem;
+    line-height: 1.5;
+}
+.schedule-overview-heading p { margin: 5px 0 0; }
+.schedule-overview-count {
+    flex: 0 0 auto;
+    color: var(--muted);
+    padding-top: 4px;
+    font-size: 0.71rem;
+    font-weight: 700;
+}
+.schedule-overview-controls { display: grid; gap: 11px; margin: 16px 0 12px; }
+.schedule-overview-filter-group { display: flex; flex-wrap: wrap; align-items: center; gap: 7px 12px; }
+.schedule-overview-filter-label { min-width: 35px; color: var(--muted); font-size: 0.71rem; font-weight: 750; }
+.schedule-overview-filter-options { display: flex; flex-wrap: wrap; gap: 6px; }
+.schedule-overview-filter {
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding: 7px 11px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 0.69rem;
+    font-weight: 740;
+    cursor: pointer;
+}
+.schedule-overview-filter.active { color: var(--black); border-color: var(--black); background: var(--paper); }
+.schedule-overview-guide { margin: 0 0 11px; }
+.schedule-overview-scroll {
+    position: relative;
+    max-height: min(70vh, 730px);
+    overflow: auto;
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    background: #fff;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+}
+.schedule-overview-table {
+    table-layout: fixed;
+    border-spacing: 0;
+    border-collapse: separate;
+    min-width: 100%;
+    width: max-content;
+    color: var(--black);
+}
+.schedule-overview-table .schedule-overview-date,
+.schedule-overview-table .schedule-overview-cell {
+    width: 176px;
+    min-width: 176px;
+    max-width: 176px;
+}
+.schedule-overview-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    border-bottom: 1px solid var(--line-strong);
+    background: #f5f3ee;
+}
+.schedule-overview-date {
+    padding: 11px 8px;
+    border-right: 1px solid var(--line);
+    text-align: left;
+}
+.schedule-overview-date strong,
+.schedule-overview-date small { display: block; }
+.schedule-overview-date strong { font-size: 0.79rem; }
+.schedule-overview-date small { margin-top: 3px; font-size: 0.64rem; color: var(--muted); }
+.schedule-overview-hour {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    width: 58px;
+    min-width: 58px;
+    max-width: 58px;
+    padding: 10px 6px;
+    border-right: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line);
+    background: #f7f6f2;
+    color: var(--muted);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.7rem;
+    font-weight: 720;
+    text-align: center;
+    vertical-align: top;
+}
+.schedule-overview-table thead .schedule-overview-corner { z-index: 3; background: #f3f1eb; }
+.schedule-overview-cell {
+    padding: 5px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+}
+.schedule-overview-cell--empty { background: #fbfaf7; }
+.schedule-overview-event {
+    display: block;
+    width: 100%;
+    margin: 0 0 5px;
+    padding: 8px;
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--black);
+    text-align: left;
+    cursor: pointer;
+}
+.schedule-overview-event:last-child { margin-bottom: 0; }
+.schedule-overview-event--fixed { border-left: 3px solid #68856e; background: #f4f7f2; }
+.schedule-overview-event--planned { border-left: 3px solid #b6a88b; background: #faf9f5; }
+.schedule-overview-event--candidate { border-left: 3px dashed #a0a0a0; background: #fff; }
+.schedule-overview-event-head { display: flex; justify-content: space-between; gap: 4px; align-items: center; }
+.schedule-overview-event-time { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.67rem; color: var(--muted); font-weight: 750; }
+.schedule-overview-status {
+    flex: 0 0 auto;
+    padding: 2px 5px;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    font-size: 0.57rem;
+    font-weight: 800;
+    line-height: 1.1;
+}
+.schedule-overview-status--fixed { border-color: #b8c8b5; color: #455b43; }
+.schedule-overview-status--planned { color: #6e6654; }
+.schedule-overview-status--candidate { border-style: dashed; color: var(--muted); }
+.schedule-overview-event-title {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 5px;
+    font-size: 0.72rem;
+    line-height: 1.38;
+    overflow-wrap: anywhere;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.schedule-overview-untimed .schedule-overview-hour,
+.schedule-overview-untimed .schedule-overview-cell { background: #f7f6f2; }
+.schedule-overview-footnote { margin: 12px 0 26px; }
+@media (max-width: 600px) {
+    .schedule-overview-heading { flex-wrap: wrap; }
+    .schedule-overview-filter-options { gap: 5px; }
+    .schedule-overview-filter { font-size: 0.65rem; padding: 6px 9px; }
+    .schedule-overview-table .schedule-overview-date,
+    .schedule-overview-table .schedule-overview-cell { width: 162px; min-width: 162px; max-width: 162px; }
+    .schedule-overview-hour { width: 48px; min-width: 48px; max-width: 48px; font-size: 0.65rem; }
+    .schedule-overview-scroll { max-height: min(69vh, 630px); }
+}
