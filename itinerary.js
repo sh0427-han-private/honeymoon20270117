@@ -14,37 +14,37 @@ const tripData = {
             date: "2027-01-17",
             label: "1/17 (일)",
             city: "Sydney",
-            title: "용인 출발 → 인천공항 → 시드니",
+            title: "인천공항 인근 숙소 → 인천공항 → 시드니",
             intensity: 2,
             items: [
                 {
-                    time: "03:15",
-                    title: "용인동백 두산위브더제니스 출발",
+                    time: "04:20",
+                    title: "인천공항 인근 숙소 출발 · 제2여객터미널 이동",
                     type: "transport", planStatus: "planned",
-                    note: "택시/자차 권장 · 새벽 이동 약 1시간 20~40분 예상, 교통 변수 포함 여유 있게 출발"
+                    note: "1/16 인천공항 인근 숙소 1박 예정(아직 미예약). 05:00 T2 도착 기준 임시 출발 시각으로, 숙소 위치·셔틀 또는 택시 운영 확인 후 재조정"
                 },
                 {
                     time: "05:00",
                     title: "인천국제공항 제2여객터미널 도착",
-                    type: "transport", planStatus: "planned",
+                    type: "transport", planStatus: "fixed",
                     note: "08:00 국제선 출발 3시간 전 도착 목표"
                 },
                 {
                     time: "05:10",
                     title: "대한항공 비즈니스 체크인 · 수하물 위탁",
-                    type: "flight", planStatus: "planned",
+                    type: "flight", planStatus: "fixed",
                     note: "체크인 후 보안검색·출국심사 진행"
                 },
                 {
                     time: "06:00",
                     title: "대한항공 프레스티지 라운지 · 아침식사 & 휴식",
-                    type: "lounge", planStatus: "candidate",
+                    type: "lounge", planStatus: "fixed",
                     note: "T2 프레스티지 서편 라운지 기준 · 현재 04:00부터 운영, 약 1시간 이상 여유롭게 이용"
                 },
                 {
                     time: "07:20",
                     title: "탑승구 이동 · 탑승 준비",
-                    type: "note", planStatus: "planned"
+                    type: "note", planStatus: "fixed"
                 },
                 {
                     time: "08:00",
@@ -63,13 +63,20 @@ const tripData = {
                     time: "20:05",
                     title: "시드니 도착",
                     type: "flight", planStatus: "fixed",
-                    note: "입국심사와 수하물 수령 후 호텔 이동"
+                    note: "시드니 T1 국제선 도착 · 입국심사 및 수하물 수령 후 택시 승차장으로 이동(실제 소요시간에 따라 후속 일정 조정)"
+                },
+                {
+                    time: "21:15",
+                    title: "시드니 공항 T1 → Meriton Suites Campbell Street 이동 (택시)",
+                    type: "transport", planStatus: "planned",
+                    note: "권장: T1 공식 택시 승차장에서 숙소까지 이동(2인·캐리어). 시드니 공항 공식 안내상 CBD 택시 약 AUD 45~55, 교통·할증 등에 따라 변동. 대안: T8 Airport Link → Central역 → 숙소 도보 약 6분(공항역 이용료 별도). 21:15는 입국·수하물 처리 후 출발 예상 시각"
                 },
                 {
                     time: "22:00",
                     title: "메리톤 스위트 캠벨 스트리트 체크인",
-                    type: "hotel", planStatus: "planned",
-                    bookingKey: "sydney-meriton"
+                    type: "hotel", planStatus: "fixed",
+                    bookingKey: "sydney-meriton",
+                    note: "사용자 확정 체크인 목표 22:00 · 숙소 예약은 완료. 항공 지연·입국심사·공항 교통상황에 따라 실제 도착시간은 변동 가능"
                 }
             ]
         },
@@ -353,7 +360,6 @@ const tripData = {
         { city: "Auckland", dates: "1/26 → 1/29", name: "Hilton Auckland", price: 1461663 }
     ],
     places: [
-        { name: "용인동백 두산위브더제니스", city: "Yongin", lat: 37.2838527, lng: 127.1499897, category: "출발지" },
         { name: "인천국제공항 제2여객터미널", city: "Incheon", lat: 37.4692, lng: 126.4335, category: "공항" },
         { name: "대한항공 프레스티지 라운지(서편)", city: "Incheon Airport T2", lat: 37.4692, lng: 126.4335, category: "라운지" },
         { name: "Meriton Suites Campbell Street", city: "Sydney", lat: -33.8797, lng: 151.2056, category: "숙소" },
