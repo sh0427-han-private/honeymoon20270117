@@ -4,7 +4,7 @@
 > 작업 시작 시 **이 파일을 먼저 읽고, 실제 웹앱 일정 데이터는 `itinerary.js`를 함께 확인**한다.
 > 사용자의 최신 요청이 이 문서와 충돌하면 최신 요청이 우선한다.
 >
-> 마지막 정리 기준: 2026-10-27 · V45
+> 마지막 정리 기준: 2026-10-27 · V46
 
 ---
 
@@ -123,17 +123,17 @@
 - 상품: **Milford Sound Coach & Nature Cruise ex Queenstown**
 - 성인 2명
 - **06:35** Hampshire Holiday Parks Queenstown Lakeview 리셉션 대기
-- **06:45** 숙소에서 택시 픽업
+- **06:45** Southern Discoveries 예약에 포함된 택시로 숙소에서 픽업하여 Queenstown Visitor Centre로 이동
 - 택시 이동 → **Southern Discoveries Queenstown Visitor Centre**
   - St Omer Wharf, **110 Beach Street, Queenstown 9300**
-- **07:00** Queenstown Visitor Centre에서 코치 출발 — Southern Discoveries 공식 상품 일정 기준
+- **07:00** Queenstown Visitor Centre에서 택시 하차 후 투어 버스(코치)로 갈아타고 Milford Sound 출발 — Southern Discoveries 공식 상품 일정 기준
 - Milford Road 이동 + Nature Cruise
 - **To Kai Lunch 2인 포함**
 - 한국어 포함 Multi-Language Coach Commentary 앱 사용 가능 · 이어폰 필요
-- **19:30 예정** Southern Discoveries Queenstown Visitor Centre 복귀 — 공식 상품 일정 기준
+- **19:30 예정** 투어 버스로 출발 장소와 같은 Southern Discoveries Queenstown Visitor Centre 복귀 — 공식 상품 일정 기준
 - 19:30은 예약확인서 본문이 아니라 Southern Discoveries 공식 Coach & Nature Cruise 시간표의 Queenstown return time이다.
 - 교통량, Milford Road 경관 정차 및 당일 운영상황에 따라 복귀 시간은 변동될 수 있다.
-- 복귀 후 숙소 이동은 별도 일정으로 둔다.
+- Visitor Centre 복귀 후 숙소로 이동하는 것은 별도 계획이며, **호텔 귀환 택시 제공 여부는 예약확인서에 명시되지 않았으므로 미확정**. 확인 전까지 왕복 택시가 포함됐다고 안내하지 않는다.
 
 Drive 문서:
 
@@ -157,7 +157,7 @@ Milford 결제 완료 여부/최종 결제금액은 예약확인서만으로 확
 - 1/18 Sydney CBD / Fish Market / Barangaroo / The Rocks / Observatory
 - 1/19 Surry Hills / Bondi / Botanic Garden / Opera House
 - 1/20 Sydney → Queenstown
-- 1/21 **06:35 리셉션 대기 → 06:45 숙소 픽업 → 07:00 Visitor Centre 코치 출발 → Milford Sound Nature Cruise → 19:30 Visitor Centre 복귀 예정 → 숙소 이동**
+- 1/21 **06:35 숙소 리셉션 대기 → 06:45 예약된 택시로 Visitor Centre 이동 → 07:00 Visitor Centre에서 투어 버스 환승·출발 → Milford Sound Nature Cruise → 19:30경 버스로 같은 Visitor Centre 복귀 → 숙소 이동(귀환 택시 여부 미확인)**
 - 1/22 Queenstown 휴식 + **15:00 Hertz 렌터카 수령**
 - 1/23 Onsen → Arrowtown → Crown Range / Cardrona → Wanaka
 - 1/24 Wanaka → Pukaki → Tekapo → Fairlie
@@ -361,8 +361,8 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 ## 11. PWA / Offline
 
 - `manifest.webmanifest` + `service-worker.js`
-- 현재 cache version: **`honeymoon-v45`** (03:20 기상·Uber/DiDi 픽업 안내)
-- `index.html`의 `itinerary.js`, `app.js`, `booking-data.js`는 **V45**, `styles.css`는 V43 유지. 전체 일정표 JS/CSS는 V41 유지, 온센 결제 관련 파일은 V39 유지
+- 현재 cache version: **`honeymoon-v46`** (밀포드 택시 픽업→Visitor Centre 버스 환승·복귀 안내)
+- `index.html`의 `itinerary.js`는 **V46**, `app.js`·`booking-data.js`는 V45, `styles.css`는 V43 유지. 전체 일정표 JS/CSS는 V41 유지, 온센 결제 관련 파일은 V39 유지
 - `reservation-data-v33.js`도 APP_SHELL에 포함
 - `trip-operations-v36.js` / `trip-operations-v36.css`도 APP_SHELL에 포함
 - `entry-guide-v37.js` / `entry-guide-v37.css`도 APP_SHELL에 포함
@@ -397,6 +397,7 @@ Drive 링크가 Public JS에 있어도 실제 파일 접근은 Google Drive `Res
 - [x] Fairlie Airbnb 예약 인원 2명 변경 완료(사용자 확인)
 - [ ] Fairlie Airbnb 최신 2명 예약확인서 확보·Drive 문서 교체(현재 파일은 1명 표기)
 - [ ] Milford Sound 결제 완료 여부/최종 결제금액 확인
+- [ ] Southern Discoveries에 **투어 종료 후 Queenstown Visitor Centre→Hampshire 숙소 귀환 택시 포함 여부** 문의, 숙소 리셉션의 새벽 택시 픽업 정차 위치 확인
 - [ ] 여행 직전 Southern Discoveries 06:45 숙소 픽업 및 07:00/19:30 공식 시간표 재확인
 - [ ] Southern Discoveries Multi-Language Commentary 앱 및 이어폰 준비
 - [ ] Hertz 보증금 / pre-authorisation 실제 승인 금액 확인
