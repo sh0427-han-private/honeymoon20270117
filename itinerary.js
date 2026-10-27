@@ -265,7 +265,7 @@ const tripData = {
             title: "로토루아 투어",
             intensity: 5,
             items: [
-                { time: "07:00", title: "Rotorua 당일 투어 출발", type: "tour", planStatus: "planned", bookingKey: "rotorua", note: "투어 상품·픽업 장소·출발 시각 미확정(07:00 임시 배치)" },
+                { time: "07:00", title: "로토루아 Wai-O-Tapu + Te Puia + 마오리 하카 투어", type: "tour", planStatus: "planned", bookingKey: "rotorua", note: "예약처 결정: 마이리얼트립 [오클랜드] 로토루아 와이오타푸 + 테푸이아 간헐천 & 마오리 하카 공연(Expedigo 운영). 2인 · 2027/1/27로 예약 예정, 아직 미예약·미결제. 호텔 픽업 포함 상품이나 Hilton Auckland 픽업 가능 여부·실제 픽업 시간·투어 복귀 시간은 바우처에서 확인(07:00은 임시 배치). 점심·음료 불포함. 결제 직전 총액·취소 규정 재확인", guideUrl: "https://experiences.myrealtrip.com/products/6067970", guideLabel: "마이리얼트립에서 투어 예약" },
                 { time: "20:00", title: "Auckland 복귀 · 호텔 휴식", type: "hotel", planStatus: "planned" }
             ]
         },
