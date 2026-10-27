@@ -120,9 +120,10 @@ const allPlaces = [...tripData.places, ...supplementalPlaces];
 
 const routePlaceNamesByDate = {
     "2027-01-17": [
-        "용인동백 두산위브더제니스",
         "인천국제공항 제2여객터미널",
-        "대한항공 프레스티지 라운지(서편)"
+        "대한항공 프레스티지 라운지(서편)",
+        "Sydney Airport",
+        "Meriton Suites Campbell Street"
     ],
     "2027-01-18": [
         "Meriton Suites Campbell Street",
@@ -194,12 +195,14 @@ const routePlaceNamesByDate = {
 };
 
 const schedulePlaceOverrides = {
-    "2027-01-17|03:15": "용인동백 두산위브더제니스",
     "2027-01-17|05:00": "인천국제공항 제2여객터미널",
     "2027-01-17|05:10": "인천국제공항 제2여객터미널",
     "2027-01-17|06:00": "대한항공 프레스티지 라운지(서편)",
     "2027-01-17|07:20": "인천국제공항 제2여객터미널",
     "2027-01-17|08:00": "인천국제공항 제2여객터미널",
+    "2027-01-17|20:05": "Sydney Airport",
+    "2027-01-17|21:15": "Sydney Airport",
+    "2027-01-17|22:00": "Meriton Suites Campbell Street",
     "2027-01-18|10:00": "Queen Victoria Building",
     "2027-01-18|12:00": "Sydney Fish Market",
     "2027-01-18|14:00": "Barangaroo",
