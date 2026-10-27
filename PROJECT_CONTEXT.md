@@ -13,9 +13,9 @@
 - 여행 기간: **2027-01-17 ~ 2027-01-29**
 - 인원: 2명
 - 흐름: Korea → Sydney → Queenstown → Wanaka → Fairlie → Christchurch → Auckland → Korea
-- Repository: `sh0427-han/honeymoon20270117`
+- Repository: `sh0427-han-private/honeymoon20270117` (사용자 확인: Public 전환 및 Pages 배포 설정 완료)
 - 배포: Public GitHub repository + GitHub Pages
-- 사이트: `https://sh0427-han.github.io/honeymoon20270117/`
+- 사이트: GitHub Pages 배포 완료(사용자 확인). 기존 이전 계정 Pages URL은 사용하지 않음; 현재 URL은 배포 설정에서 확인
 - `itinerary.js`: 실제 웹앱 일정 canonical source
 - `booking-data.js`: 예약 문서 / 현지 결제 / Drive 링크 기본 데이터
 - `reservation-data-v32.js`: Milford 예약 세부정보 보강
@@ -169,6 +169,8 @@ Milford 결제 완료 여부/최종 결제금액은 예약확인서만으로 확
 - 로토루아 1/27은 계획(상품 미예약)이며 기존 `fixed: true`를 해제한다. 와이헤케 1/28은 후보이다.
 - 분류는 기존 초안에 대한 1차 라벨링으로, **장소·순서·시간 자체를 새로 확정한 것은 아니다.**
 - Google Schedule은 보조표이므로 상세 일정 최종 승인 후 동기화한다.
+- **V41 전체 일정 탭:** 일정 메뉴의 `하루 일정 | 전체 일정` 스위치로 전환한다. 전체 표는 `itinerary.js`를 직접 읽어 날짜(가로) × 시간(세로)의 13일 시간표를 생성한다. 구간(전체·시드니·남섬·오클랜드)과 고정·계획·후보 필터, 표에서 날짜별 상세 일정으로 이동하는 기능을 제공한다. 모바일은 가로·세로 스크롤/시간열·날짜행 고정으로 표시한다. 시각이 정해지지 않은 항목은 기타 행에 표시한다.
+- Google Schedule 시트에 남아 있는 일부 관광지/식당은 웹앱 최신 초안과 불일치할 수 있으므로 **웹앱 시간표로 직접 복사하지 않는다**.
 
 ### Google Schedule Sheet
 
@@ -334,8 +336,8 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 ## 11. PWA / Offline
 
 - `manifest.webmanifest` + `service-worker.js`
-- 현재 cache version: **`honeymoon-v40`** (일정 상태 분류)
-- `index.html`의 `itinerary.js`, `app.js`, `styles.css`는 **V40**으로 갱신. 온센 결제 관련 `booking-data.js` / `booking-layout-v32.js`는 기존 **V39** 유지
+- 현재 cache version: **`honeymoon-v41`** (전체 여행 시간표)
+- `index.html`의 `app.js`, `schedule-overview-v41.js`, `schedule-overview-v41.css`는 **V41**로 갱신. `itinerary.js`/`styles.css`는 기존 V40, 온센 결제 관련 파일은 V39 유지
 - `reservation-data-v33.js`도 APP_SHELL에 포함
 - `trip-operations-v36.js` / `trip-operations-v36.css`도 APP_SHELL에 포함
 - `entry-guide-v37.js` / `entry-guide-v37.css`도 APP_SHELL에 포함
