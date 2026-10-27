@@ -150,7 +150,7 @@ const tripData = {
                     time: "06:35",
                     title: "Hampshire Holiday Parks Queenstown Lakeview 리셉션 대기",
                     type: "note", planStatus: "fixed",
-                    note: "예약확인서 기준 픽업 10분 전까지 리셉션 대기"
+                    note: "예약확인서 기준 06:45 택시 픽업 10분 전인 06:35까지 숙소 리셉션 대기. 새벽 리셉션 운영 및 택시 정차 위치는 숙소 체크인 시 확인"
                 },
                 {
                     time: "06:45",
@@ -158,14 +158,14 @@ const tripData = {
                     type: "tour", planStatus: "fixed",
                     bookingKey: "milford",
                     fixed: true,
-                    note: "택시 픽업 → Southern Discoveries Queenstown Visitor Centre · St Omer Wharf, 110 Beach Street"
+                    note: "예약에 포함된 택시가 숙소(Hampshire Holiday Parks Queenstown Lakeview)에서 픽업 → Southern Discoveries Queenstown Visitor Centre(St Omer Wharf, 110 Beach Street)로 이동. 이곳에서 밀포드사운드 투어 버스로 환승"
                 },
                 {
                     time: "07:00",
                     title: "Southern Discoveries Queenstown Visitor Centre 코치 출발",
                     type: "transport", planStatus: "fixed",
                     fixed: true,
-                    note: "공식 Coach & Nature Cruise 상품 일정 기준 · Milford Road 경관 정차는 교통/운영상황에 따라 변동"
+                    note: "Visitor Centre에서 택시 하차 후 투어 버스(코치)로 갈아타고 Milford Sound 출발. Southern Discoveries 공식 Coach & Nature Cruise 일정상 07:00 출발이며 경관 정차는 교통·현장 상황에 따라 변동"
                 },
                 {
                     time: "투어 중",
@@ -178,12 +178,13 @@ const tripData = {
                     time: "19:30",
                     title: "Southern Discoveries Queenstown Visitor Centre 복귀 예정",
                     type: "transport", planStatus: "planned",
-                    note: "공식 상품 일정 기준 Queenstown 19:30 복귀 · 교통 및 경관 정차 상황에 따라 변동 가능"
+                    note: "밀포드사운드 관광을 마친 뒤 투어 버스(코치)로 출발했던 Southern Discoveries Queenstown Visitor Centre(St Omer Wharf, 110 Beach Street)에 복귀. 공식 시간표상 19:30 예정이며 현장 상황에 따라 변동 가능. Visitor Centre→호텔 귀환 택시 제공 여부는 아직 미확인"
                 },
                 {
                     time: "이후",
-                    title: "숙소 이동 · 휴식",
-                    type: "hotel", planStatus: "planned"
+                    title: "Visitor Centre에서 숙소 이동 · 휴식",
+                    type: "hotel", planStatus: "planned",
+                    note: "Queenstown Visitor Centre에서 숙소(Hampshire Holiday Parks Queenstown Lakeview)로 돌아가기. 호텔까지 귀환 택시 포함 여부는 예약확인서에 없어 아직 미확정. 포함되지 않으면 도보 또는 택시 이용 계획"
                 }
             ]
         },
