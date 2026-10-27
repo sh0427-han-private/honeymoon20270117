@@ -18,6 +18,12 @@ const tripData = {
             intensity: 2,
             items: [
                 {
+                    time: "03:20",
+                    title: "기상 · 출국 준비 및 숙소 체크아웃",
+                    type: "note", planStatus: "fixed",
+                    note: "04:20 공항 이동에 맞춰 1시간 전 기상(사용자 확정). 1/16 인천공항 근처 숙소는 아직 미예약"
+                },
+                {
                     time: "04:20",
                     title: "인천공항 인근 숙소 출발 · 제2여객터미널 이동",
                     type: "transport", planStatus: "planned",
@@ -63,13 +69,15 @@ const tripData = {
                     time: "20:05",
                     title: "시드니 도착",
                     type: "flight", planStatus: "fixed",
-                    note: "시드니 T1 국제선 도착 · 입국심사 및 수하물 수령 후 택시 승차장으로 이동(실제 소요시간에 따라 후속 일정 조정)"
+                    note: "시드니 T1 국제선 도착 · 입국심사 및 수하물 수령 후 Uber·DiDi 앱에서 호출하고 해당 서비스의 지정 픽업 구역으로 이동(실제 소요시간에 따라 후속 일정 조정)"
                 },
                 {
                     time: "21:15",
-                    title: "시드니 공항 T1 → Meriton Suites Campbell Street 이동 (택시)",
+                    title: "Uber·DiDi 앱 호출 차량으로 Meriton Suites 이동",
                     type: "transport", planStatus: "planned",
-                    note: "권장: T1 공식 택시 승차장에서 숙소까지 이동(2인·캐리어). 시드니 공항 공식 안내상 CBD 택시 약 AUD 45~55, 교통·할증 등에 따라 변동. 대안: T8 Airport Link → Central역 → 숙소 도보 약 6분(공항역 이용료 별도). 21:15는 입국·수하물 처리 후 출발 예상 시각"
+                    note: "입국심사·수하물 수령 후 Uber와 DiDi 앱에서 'Meriton Suites Campbell Street' 목적지 및 실시간 요금 비교 → 차량 호출. [UberX] T1 Arrivals Hall B 바깥 Rank C(출구 약 20m), 앱의 6자리 PIN을 기사에게 알려주고 탑승(현재 PIN 운영 06:00~22:00). [Uber XL·Premium 등] Rank B의 지정 베이. [DiDi] 초록색 Rideshare 표지를 따라 Priority Pick-up Zone으로 이동하고 앱의 탑승 위치·차량번호 확인. 일반 택시 Taxi Rank와 앱 픽업 구역은 별도. 앱 호출이 어려우면 일반 택시 승강장 이용. 앱 요금은 호출 시점의 표시 금액 기준이며, 21:15는 예상 시각. 현장 표지·앱 안내를 우선 확인",
+                    guideUrl: "https://www.sydneyairport.com.au/info-sheet/by-taxi-and-rideshare",
+                    guideLabel: "시드니 공항 공식 픽업 안내"
                 },
                 {
                     time: "22:00",

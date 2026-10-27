@@ -568,8 +568,12 @@ const bindScheduleTimelineMapClicks = () => {
             document.querySelector("#schedule-map-block")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
         };
 
-        item.addEventListener("click", activate);
+        item.addEventListener("click", (event) => {
+            if (event.target.closest("a")) return;
+            activate();
+        });
         item.addEventListener("keydown", (event) => {
+            if (event.target.closest("a")) return;
             if (event.key === "Enter" || event.key === " ") {
                 event.preventDefault();
                 activate();
@@ -605,6 +609,7 @@ const renderSelectedDay = () => {
                 </div>
                 <strong>${escapeHtml(item.title)}</strong>
                 ${item.note ? `<p>${escapeHtml(item.note)}</p>` : ""}
+                ${item.guideUrl?.startsWith("https://www.sydneyairport.com.au/") ? `<a class="timeline-guide-link" href="${escapeHtml(item.guideUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.guideLabel || "공식 안내 보기")} ↗</a>` : ""}
             </div>
         </li>
     `).join("");

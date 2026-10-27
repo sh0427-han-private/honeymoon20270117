@@ -618,6 +618,23 @@ button {
     font-size: 0.75rem;
 }
 
+.timeline-guide-link {
+    display: inline-flex;
+    width: fit-content;
+    margin-top: 9px;
+    padding-bottom: 2px;
+    border-bottom: 1px solid currentColor;
+    color: #4b6759;
+    font-size: 0.76rem;
+    font-weight: 750;
+    text-decoration: none;
+}
+
+.timeline-guide-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+}
+
 .timeline-meta {
     display: flex;
     flex-wrap: wrap;
