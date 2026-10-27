@@ -667,7 +667,8 @@ const renderSelectedDay = () => {
 
     bindScheduleTimelineMapClicks();
 
-    if (document.querySelector("#schedule-panel")?.classList.contains("active")) {
+    if (document.querySelector("#schedule-panel")?.classList.contains("active")
+        && !document.querySelector("#schedule-day-view")?.hidden) {
         setTimeout(() => {
             initializeScheduleMap();
             updateScheduleTimelineSelection();
@@ -825,6 +826,7 @@ const activateTab = (tabName) => {
         renderDateStrips();
         renderSelectedDay();
         setTimeout(() => {
+            if (document.querySelector("#schedule-day-view")?.hidden) return;
             initializeScheduleMap();
             updateScheduleTimelineSelection();
         }, 60);
