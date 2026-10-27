@@ -4,7 +4,7 @@
 > 작업 시작 시 **이 파일을 먼저 읽고, 실제 웹앱 일정 데이터는 `itinerary.js`를 함께 확인**한다.
 > 사용자의 최신 요청이 이 문서와 충돌하면 최신 요청이 우선한다.
 >
-> 마지막 정리 기준: 2026-10-27 · V43
+> 마지막 정리 기준: 2026-10-27 · V44
 
 ---
 
@@ -143,7 +143,7 @@ Milford 결제 완료 여부/최종 결제금액은 예약확인서만으로 확
 
 ## 5. 날짜별 일정 요약
 
-- 1/16: 인천공항 인근 전날 숙박 예정(미예약). 숙소 선정·T2 이동수단 확인 필요.
+- 1/16: 셀토스 T2 예약주차장 입차 및 장기주차 이용 결정(미예약). 다락휴 T2 Overnight 20:00 입실 검토(미예약), 정확한 입차시각 미확정.
 - 1/17 (일): **03:20 기상 고정** → 04:20 인천공항 인근 숙소 출발(잠정) → 05:00 T2 도착, 05:10 수속, 06:00 라운지, 07:20 탑승 준비(사용자 고정) → 08:00 ICN 출발 → 20:05 SYD 도착 → 21:15 **Uber·DiDi 앱 호출 차량** 이동(예상) → 22:00 Meriton 체크인(사용자 고정 시각)
 - 1/18 Sydney CBD / Fish Market / Barangaroo / The Rocks / Observatory
 - 1/19 Surry Hills / Bondi / Botanic Garden / Opera House
@@ -177,6 +177,16 @@ Milford 결제 완료 여부/최종 결제금액은 예약확인서만으로 확
 - **1/17 03:20 기상(고정·사용자 확인):** 04:20 인천공항 인근 숙소 출발의 1시간 전 기상. 1/16 숙소는 미예약이므로 04:20 출발은 계획으로 유지.
 - **1/17 시드니 T1→Meriton 이동(계획):** 21:15 Uber·DiDi 앱 호출 권장. 수하물 수령 후 목적지 `Meriton Suites Campbell Street`를 입력하고 2개 앱의 표시 요금 비교. T1 **UberX**는 Arrivals Hall B 밖 Rank C(약 20m), 6자리 PIN을 기사에게 제시(현재 06:00~22:00 PIN 운영), XL·Premium 등은 Rank B. **DiDi 및 기타 앱 호출**은 초록색 Rideshare 표지의 Priority Pick-up Zone을 이용하며 앱 픽업 위치를 우선 확인. 일반 Taxi Rank와 별개이며, 앱 호출이 어려우면 택시 승강장 이용. Uber·DiDi 가격은 실시간 앱 요금으로 확인해야 하고, 일반 택시의 CBD 일부 구간 AUD 60 고정 요금은 별도 제도(2025-11-03 시행)이다. 21:15 이동과 22:00 체크인은 항공 지연·입국심사로 변동 가능.
 - 픽업 안내 공식 링크: `https://www.sydneyairport.com.au/info-sheet/by-taxi-and-rideshare`; Uber 앱 지도: `https://www.uber.com/global/en/r/airports/syd/pickup/`. 2027년 여행 직전 운영 위치 재확인.
+
+### T2 장기주차 · 다락휴 예약 계획 (2026-10-27 확인)
+
+- **주차 이용 결정·예약 미완료:** 셀토스(일반 승용, 경차할인 없음) 2027-01-16(토) 저녁 인천공항 T2 예약주차장 입차 → 2027-01-29(금) 밤 출차. 주차대행이 아닌 예약주차장 직접 이용.
+- **예약 오픈:** 입차 예정시각 기준 45일 전부터. 1/16 **20:00 입차를 가정하면 2026-12-02(수) 20:00(한국시간)** 오픈. 실제 입차예정시각이 달라지면 오픈시각도 변경.
+- **요금·예산:** 시간당 1,000원, 1일 최대 9,000원(현재 공식 소형 승용차 예약주차장 요금). 1/16 20:00~1/29 21:00 예시 118,000원. 예산 120,000원으로 잡고 지출 전까지 '예상' 처리. Google Budget Expenses 16행(국내교통), Summary 21행에 동일 반영. 다락휴 숙박비는 별도이며 현재 미반영.
+- **보증금:** 예약 카드보증금 10,000원 일시 승인, 주차요금과 별도이고 정상 출차 후 5영업일 내 승인취소(위약금 발생 시 예외). 예약한 주차장과 일반 장기주차장은 별도 구역.
+- **다락휴 검토·미예약:** 2027-01-16 20:00부터 T2 다락휴 2인 Overnight(입실 후 12시간). 사용자가 예약 달력에서 2026년 10·11월만 확인함. **2027년 1월분의 공식 오픈일 미확인**. 2026-11-01부터 수시 확인; 12월에도 안 열리면 다락휴 T2 032-743-5008로 문의. 11월 오픈 확정 주장 금지.
+- **숙박 요금:** 공식 평일 기준 더블 관련 69,000~94,000원이나 토요일 1/16 결제액은 별도 확인. 호텔·객실 선택/예약 전이므로 이번 예산표에 호텔비 신규 반영하지 않음. 호텔 확정 시 1/17 04:20 숙소→T2 이동 방식 조정.
+- 공식 링크: 주차 `https://parking.airport.kr/reserve` / 요금 `https://www.airport.kr/ap_ko/969/subview.do` / 다락휴 `https://www.walkerhill.com/darakhyu/t2/kr/reservation/RoomSearchIntro.jsp`.
 
 ### Google Schedule Sheet
 
@@ -342,8 +352,8 @@ Fairlie Airbnb는 ₩391,259 선결제 완료이므로 현지결제 배지를 �
 ## 11. PWA / Offline
 
 - `manifest.webmanifest` + `service-worker.js`
-- 현재 cache version: **`honeymoon-v43`** (03:20 기상·Uber/DiDi 픽업 안내)
-- `index.html`의 `itinerary.js`, `app.js`, `styles.css`는 **V43**로 갱신. 전체 일정표 JS/CSS는 V41 유지, 온센 결제 관련 파일은 V39 유지
+- 현재 cache version: **`honeymoon-v44`** (03:20 기상·Uber/DiDi 픽업 안내)
+- `index.html`의 `itinerary.js`는 **V44**, `app.js`·`styles.css`는 V43 유지. 전체 일정표 JS/CSS는 V41 유지, 온센 결제 관련 파일은 V39 유지
 - `reservation-data-v33.js`도 APP_SHELL에 포함
 - `trip-operations-v36.js` / `trip-operations-v36.css`도 APP_SHELL에 포함
 - `entry-guide-v37.js` / `entry-guide-v37.css`도 APP_SHELL에 포함
@@ -369,6 +379,11 @@ Drive 링크가 Public JS에 있어도 실제 파일 접근은 Google Drive `Res
 ---
 
 ## 13. 현재 TODO
+
+- [ ] **2026-11-01부터** 다락휴 T2 2027-01-16 20:00 Overnight 예약 개방 확인(정확한 개방일 미확인), 12월에도 미오픈 시 032-743-5008 문의
+- [ ] **2026-12-02 20:00** 인천공항 T2 셀토스 예약주차장 1/16 20:00~1/29 밤 예약 신청(입차예정 시각 달라지면 오픈 시각도 변경)
+- [ ] T2 예약주차 후 터미널 이동 셔틀 및 다락휴 체크인 동선 확정
+
 
 - [x] Fairlie Airbnb 예약 인원 2명 변경 완료(사용자 확인)
 - [ ] Fairlie Airbnb 최신 2명 예약확인서 확보·Drive 문서 교체(현재 파일은 1명 표기)
