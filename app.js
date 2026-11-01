@@ -79,8 +79,6 @@ let selectedSchedulePlaceName = null;
 let scheduleMap = null;
 let scheduleMarkers = new Map();
 
-const countdownValue = document.querySelector("#countdown-value");
-const countdownCaption = document.querySelector("#countdown-caption");
 const homeFocus = document.querySelector("#home-focus");
 const journeyStrip = document.querySelector("#journey-strip");
 const dateStrip = document.querySelector("#date-strip");
@@ -310,23 +308,6 @@ const makeScheduleMarkerIcon = (number, active = false) => L.divIcon({
     iconSize: active ? [38, 38] : [30, 30],
     iconAnchor: active ? [19, 19] : [15, 15]
 });
-
-const renderCountdown = () => {
-    if (tripState.mode === "before") {
-        countdownValue.textContent = tripState.countdown === 0 ? "D-DAY" : `D-${tripState.countdown}`;
-        countdownCaption.textContent = "until departure";
-        return;
-    }
-
-    if (tripState.mode === "during") {
-        countdownValue.textContent = "ON TRIP";
-        countdownCaption.textContent = "honeymoon days";
-        return;
-    }
-
-    countdownValue.textContent = "MEMORIES";
-    countdownCaption.textContent = "trip complete";
-};
 
 const renderHomeFocus = () => {
     const day = getDay(tripState.focusDate) || tripData.days[0];
@@ -853,7 +834,12 @@ document.querySelectorAll(".nav-button").forEach((button) => {
 });
 
 document.querySelectorAll("[data-go-tab]").forEach((button) => {
-    button.addEventListener("click", () => activateTab(button.dataset.goTab));
+    button.addEventListener("click", () => {
+        activateTab(button.dataset.goTab);
+        if (button.dataset.goMoreFilter) {
+            document.querySelector(`#more-filter-bar [data-more-filter="${button.dataset.goMoreFilter}"]`)?.click();
+        }
+    });
 });
 
 document.querySelector("#jump-today")?.addEventListener("click", () => {
@@ -870,7 +856,6 @@ document.querySelector("#route-today")?.addEventListener("click", () => {
     renderRoute();
 });
 
-renderCountdown();
 renderHomeFocus();
 renderJourney();
 renderDateStrips();

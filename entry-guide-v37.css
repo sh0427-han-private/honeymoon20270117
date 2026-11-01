@@ -1,5 +1,5 @@
 #more-filter-bar.more-filter-bar {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 #more-panel[data-more-filter="entry"] [data-more-section="entry"] {

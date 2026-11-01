@@ -8,7 +8,7 @@ The visual direction is a hybrid of premium editorial design and a practical mob
 
 Reference research source: Refero Styles (`https://styles.refero.design/`). The site does not copy a single Refero design. Instead it borrows general patterns commonly found in strong product/editorial systems:
 
-- one atmospheric hero moment followed by clean UI
+- a compact atmospheric hero on the home screen only, followed by clean UI
 - oversized serif display typography paired with restrained system sans-serif UI text
 - thin 1px rules instead of heavy card shadows
 - generous spacing and fewer visual containers
@@ -59,12 +59,12 @@ Hero:
 - HONEYMOON EDITION label
 - Australia & New Zealand large editorial headline
 - travel dates and city route
-- D-day / nights / days metrics
+- compact departure and return date pair (2027-01-17 / 2027-01-29); no D-day, night count, or trip-day count
 
 Below hero:
 
 - next/today itinerary card
-- three quick actions: schedule / route / booking
+- three quick actions: schedule / booking / packing checklist
 - accommodation journey displayed as a horizontal route line, not individual heavy cards
 
 No photography is used to preserve speed and consistency.
@@ -99,13 +99,12 @@ Priority is scanability:
 
 ## Mobile navigation
 
-Bottom navigation is a floating white translucent pill with one black active pill.
+Bottom navigation is a floating white translucent pill with one black active pill. Use exactly four equal-width items matching the rendered tabs.
 
 Tabs:
 
 - 홈
 - 일정
-- 동선
 - 예약
 - 더보기
 
