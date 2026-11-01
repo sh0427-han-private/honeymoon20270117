@@ -1,6 +1,6 @@
 #more-filter-bar.more-filter-bar {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 6px;
     margin: 0 0 24px;
 }
@@ -29,6 +29,7 @@
 }
 
 #more-panel[data-more-filter="prep"] [data-more-section="prep"],
+#more-panel[data-more-filter="packing"] [data-more-section="packing"],
 #more-panel[data-more-filter="docs"] [data-more-section="docs"],
 #more-panel[data-more-filter="emergency"] [data-more-section="emergency"],
 #more-panel[data-more-filter="gifts"] [data-more-section="gifts"] {

@@ -49,6 +49,8 @@ This repository is currently public. Do not store passport numbers, booking refe
 - `styles.css`: responsive editorial/travel-app styling
 - `itinerary.js`: canonical trip data
 - `app.js`: rendering, D-day/today state, day selector, map modes, budget, shopping interactions
+- `packing-data.js`: 여행 지역별 옷차림과 2인·공용 준비물 기준 목록
+- `packing-checklist.js` / `packing-checklist.css`: 더보기 > 준비물, 사용자별 체크리스트 UI (체크는 기기별 localStorage; 서버·Google Drive 자동 동기화 없음)
 - `PROJECT_CONTEXT.md`: long-term context and decision log
 - `README.md`: project entry point and current design direction
 
