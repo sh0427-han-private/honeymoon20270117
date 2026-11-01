@@ -581,6 +581,23 @@ const bindScheduleTimelineMapClicks = () => {
     });
 };
 
+
+const isScheduleClock = (time) => /^([01]\d|2[0-3]):[0-5]\d$/.test(time || "");
+
+const formatScheduleNote = (note) => {
+    const lines = String(note)
+        .replace(/([.!?])\s+(?=\S)/g, "$1\n")
+        .replace(/\s+(?=\[[^\]]+\])/g, "\n")
+        .replace(/\s+→\s+/g, "\n→ ")
+        .split(/\n+/)
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+    return `<div class="timeline-notes">${lines.map((line) =>
+        `<p class="timeline-note-line">${escapeHtml(line)}</p>`
+    ).join("")}</div>`;
+};
+
 const renderSelectedDay = () => {
     const day = getDay(selectedDate) || tripData.days[0];
     const mappedItems = day.items.map((item) => ({
@@ -594,24 +611,59 @@ const renderSelectedDay = () => {
     }
 
     const planLabels = { fixed: "고정", planned: "계획", candidate: "후보" };
-    const items = mappedItems.map(({ item, place }) => `
-        <li
-            class="timeline-item ${place ? "timeline-item--mappable" : ""} ${place?.name === selectedSchedulePlaceName ? "timeline-item--selected" : ""}"
-            ${place ? `data-schedule-place="${escapeHtml(place.name)}" role="button" tabindex="0" aria-pressed="${place.name === selectedSchedulePlaceName}"` : ""}
-        >
-            <div class="timeline-time">${escapeHtml(item.time)}</div>
-            <div class="timeline-content">
-                <div class="timeline-meta">
-                    <span class="type-badge type-${escapeHtml(item.type)}">${getTypeLabel(item.type)}</span>
-                    <span class="plan-status plan-status--${escapeHtml(item.planStatus || (item.fixed ? "fixed" : "candidate"))}">${planLabels[item.planStatus || (item.fixed ? "fixed" : "candidate")] || "후보"}</span>
-                    ${place ? '<span class="map-ready-badge">지도</span>' : ""}
+    const scheduleEntries = mappedItems
+        .map(({ item, place }, originalIndex) => ({ item, place, originalIndex }))
+        .sort((a, b) => {
+            const aClock = isScheduleClock(a.item.time);
+            const bClock = isScheduleClock(b.item.time);
+            if (aClock !== bClock) return aClock ? -1 : 1;
+            if (!aClock) return a.originalIndex - b.originalIndex;
+            return a.item.time.localeCompare(b.item.time) || a.originalIndex - b.originalIndex;
+        });
+
+    const slotCounts = new Map();
+    scheduleEntries.forEach(({ item }) => {
+        const key = isScheduleClock(item.time) ? item.time.slice(0, 2) : "other";
+        slotCounts.set(key, (slotCounts.get(key) || 0) + 1);
+    });
+
+    let currentSlot = null;
+    const timelineRows = [];
+    scheduleEntries.forEach(({ item, place, originalIndex }) => {
+        const clock = isScheduleClock(item.time);
+        const slot = clock ? item.time.slice(0, 2) : "other";
+        if (slot !== currentSlot) {
+            currentSlot = slot;
+            const hourLabel = clock ? slot + ":00" : "기타 일정";
+            timelineRows.push(`
+                <li class="timeline-hour-slot${clock ? "" : " timeline-hour-slot--other"}">
+                    <span class="timeline-hour-label">${hourLabel}</span>
+                    <span class="timeline-hour-count">${slotCounts.get(slot)}개 일정</span>
+                </li>
+            `);
+        }
+
+        timelineRows.push(`
+            <li
+                class="timeline-item ${place ? "timeline-item--mappable" : ""} ${place?.name === selectedSchedulePlaceName ? "timeline-item--selected" : ""}"
+                data-item-index="${originalIndex}"
+                ${place ? `data-schedule-place="${escapeHtml(place.name)}" role="button" tabindex="0" aria-pressed="${place.name === selectedSchedulePlaceName}"` : ""}
+            >
+                <div class="timeline-time">${escapeHtml(item.time)}</div>
+                <div class="timeline-content">
+                    <div class="timeline-meta">
+                        <span class="type-badge type-${escapeHtml(item.type)}">${getTypeLabel(item.type)}</span>
+                        <span class="plan-status plan-status--${escapeHtml(item.planStatus || (item.fixed ? "fixed" : "candidate"))}">${planLabels[item.planStatus || (item.fixed ? "fixed" : "candidate")] || "후보"}</span>
+                        ${place ? '<span class="map-ready-badge">지도</span>' : ""}
+                    </div>
+                    <strong>${escapeHtml(item.title)}</strong>
+                    ${item.note ? formatScheduleNote(item.note) : ""}
+                    ${(item.guideUrl?.startsWith("https://www.sydneyairport.com.au/") || item.guideUrl?.startsWith("https://experiences.myrealtrip.com/products/")) ? `<a class="timeline-guide-link" href="${escapeHtml(item.guideUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.guideLabel || "공식 안내 보기")} ↗</a>` : ""}
                 </div>
-                <strong>${escapeHtml(item.title)}</strong>
-                ${item.note ? `<p>${escapeHtml(item.note)}</p>` : ""}
-                ${(item.guideUrl?.startsWith("https://www.sydneyairport.com.au/") || item.guideUrl?.startsWith("https://experiences.myrealtrip.com/products/")) ? `<a class="timeline-guide-link" href="${escapeHtml(item.guideUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.guideLabel || "공식 안내 보기")} ↗</a>` : ""}
-            </div>
-        </li>
-    `).join("");
+            </li>
+        `);
+    });
+    const items = timelineRows.join("");
 
     const routePlaces = getRoutePlaces(selectedDate);
     const selectedPlace = findPlace(selectedSchedulePlaceName);
@@ -640,7 +692,7 @@ const renderSelectedDay = () => {
                 <span>계획 · 시간 조정 가능</span>
                 <span>후보 · 검토 중</span>
             </div>
-            <ul class="timeline">${items}</ul>
+            <ul class="timeline timeline--hourly" aria-label="시간대별 하루 일정">${items}</ul>
         </article>
 
         <section id="schedule-map-block" class="schedule-map-block">

@@ -161,8 +161,10 @@
         const day = tripData.days.find((item) => item.date === selectedDate);
         if (!day) return;
 
-        selectedDayPanel.querySelectorAll(".timeline-item").forEach((row, index) => {
+        selectedDayPanel.querySelectorAll(".timeline-item").forEach((row) => {
             if (row.querySelector(".timeline-booking-actions")) return;
+            const index = Number(row.dataset.itemIndex);
+            if (!Number.isInteger(index) || index < 0) return;
             const item = day.items[index];
             if (!item?.bookingKey) return;
 
