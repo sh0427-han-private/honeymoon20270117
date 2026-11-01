@@ -22,8 +22,8 @@ The selected UI direction is **Hybrid D: Luxury Editorial + Clean Travel App**.
 - Daily use should remain compact, fast, and app-like.
 - **Do not use destination photos**. Performance on roaming/mobile networks is more important than photography.
 - Use system fonts where possible; the editorial English display type can use local serif fallbacks such as Georgia.
-- Mobile-first navigation: `홈 / 일정 / 지도 / 예약 / 더보기`.
-- Before the trip, the home screen emphasizes the D-day and next trip day.
+- Mobile-first navigation: `홈 / 일정 / 예약 / 더보기` (4 equally sized tabs).
+- The home header shows only the departure (17 Jan) and return (29 Jan) dates, without D-day or duration statistics.
 - During the trip, the home screen automatically emphasizes today's itinerary.
 - The schedule view shows one selected day at a time with a horizontal date selector.
 - The map supports both **selected-day route** and **whole-trip** modes.
@@ -48,7 +48,7 @@ This repository is currently public. Do not store passport numbers, booking refe
 - `index.html`: V2 page shell and navigation
 - `styles.css`: responsive editorial/travel-app styling
 - `itinerary.js`: canonical trip data
-- `app.js`: rendering, D-day/today state, day selector, map modes, budget, shopping interactions
+- `app.js`: rendering, trip-date/today state, day selector, map modes, budget, shopping interactions
 - `packing-data.js`: 여행 지역별 옷차림과 2인·공용 준비물 기준 목록
 - `packing-checklist.js` / `packing-checklist.css`: 더보기 > 준비물, 사용자별 체크리스트 UI (체크는 기기별 localStorage; 서버·Google Drive 자동 동기화 없음)
 - `PROJECT_CONTEXT.md`: long-term context and decision log
