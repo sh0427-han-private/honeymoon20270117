@@ -1,67 +1,78 @@
-# Honeymoon 2027
+# Honeymoon 2027 — Australia & New Zealand
 
-Australia & New Zealand honeymoon itinerary for January 17–29, 2027.
+2027년 1월 호주 시드니와 뉴질랜드 신혼여행을 위한 모바일 우선 여행 관리 웹앱입니다.
 
-## Start here
+**배포 사이트:** https://sh0427-han-private.github.io/honeymoon20270117/
 
-When continuing this project in a new ChatGPT conversation or a new work session, read these files first:
+**GitHub 저장소:** https://github.com/sh0427-han-private/honeymoon20270117
 
-1. **`PROJECT_CONTEXT.md`** — persistent trip context, fixed constraints, decisions, budget assumptions, shopping strategy, TODOs
-2. **`itinerary.js`** — canonical data currently rendered by the web app
-3. **`README.md`** — current product/design direction
+## 여행 개요
 
-Recommended continuation prompt:
+| 구분 | 일정 |
+| --- | --- |
+| 해외여행 | **2027년 1월 17일(일) 출국 ~ 1월 29일(금) 귀국 · 12박 13일** |
+| 시드니 | 1월 17일 체크인 ~ 1월 20일 체크아웃 · **3박** |
+| 뉴질랜드 | 1월 20일 체크인 ~ 1월 29일 체크아웃 · **9박** |
+| 출국 전 숙박 | 1월 16일 인천공항 주변 숙소 **1박 계획(별도·미예약)** |
+| 방문 순서 | 인천 → 시드니 → 퀸스타운 → 와나카 → 페얼리 → 크라이스트처치 → 오클랜드 → 인천 |
 
-> GitHub `sh0427-han/honeymoon20270117` 레포의 `PROJECT_CONTEXT.md`와 `itinerary.js`를 먼저 읽고 신혼여행 프로젝트를 이어서 작업해줘.
+**숙박 계산:** 시드니 3박 + 퀸스타운 3박 + 와나카 1박 + 페얼리 1박 + 크라이스트처치 1박 + 오클랜드 3박 = **12박**. 1월 16일 국내 숙박은 해외여행 숙박 일수에서 제외합니다.
 
-## Current design direction — V2
+## 웹앱 기능
 
-The selected UI direction is **Hybrid D: Luxury Editorial + Clean Travel App**.
+| 메뉴 | 주요 기능 |
+| --- | --- |
+| **홈** | 출발일·귀국일 안내, 일정·예약·준비물 바로가기, 숙박 이동 경로. 여행 중에는 NOW/NEXT 일정 표시 |
+| **일정** | 날짜별 타임라인, 13일 전체 시간표, 고정/계획/후보 구분, 날짜별 지도·길찾기, 예약 서류 링크 |
+| **예약** | 항공편·숙소·투어·렌터카 예약 정보, 예약확인서 링크, 현지 결제 상태 및 필요 금액 |
+| **더보기** | 출국 준비, 상훈/진영/공용 준비물 체크, 입국 작성 가이드, 문서 연결 현황, 긴급 연락처, 가족 선물 |
 
-- The landing/home experience should feel like a refined honeymoon travel journal.
-- Daily use should remain compact, fast, and app-like.
-- **Do not use destination photos**. Performance on roaming/mobile networks is more important than photography.
-- Use system fonts where possible; the editorial English display type can use local serif fallbacks such as Georgia.
-- Mobile-first navigation: `홈 / 일정 / 예약 / 더보기` (4 equally sized tabs).
-- The home header shows only the departure (17 Jan) and return (29 Jan) dates, without D-day or duration statistics.
-- During the trip, the home screen automatically emphasizes today's itinerary.
-- The schedule view shows one selected day at a time with a horizontal date selector.
-- The map supports both **selected-day route** and **whole-trip** modes.
-- Leaflet map failures must never block access to place information: always keep Google Maps fallback links visible.
-- Daily map markers use HTML/number markers instead of Leaflet image-marker assets to reduce external asset failure points.
+### 데이터 저장 및 동기화
 
-## Goals
+- 일정·방문지·예산 표시의 기초 데이터: 웹앱 소스 파일에서 관리합니다.
+- 실제 전체 예산·지출 장부: **Google Sheets `Honeymoon Budget 2027`** 기준입니다. 웹앱 예산 정보가 실시간 연동되는 것은 아닙니다.
+- 항공권·숙소 바우처·투어 예약확인서 원본: 접근 제한이 설정된 **Google Drive**에서 관리하며 웹앱은 해당 문서 링크를 제공합니다.
+- 준비물·선물·출국 준비 체크 상태: **각 기기의 브라우저 `localStorage`**에 저장됩니다. 휴대폰과 PC 사이 자동 동기화는 지원하지 않습니다.
+- PWA/서비스워커를 통해 일부 앱 자료를 오프라인으로 열 수 있지만, 외부 지도·Google Drive·실시간 외부 서비스에는 인터넷 연결이 필요할 수 있습니다.
 
-- Mobile-first itinerary for use during the trip
-- Daily timeline with transport, sightseeing, meals, and notes
-- Quick access to accommodation and place map links
-- Fixed tour highlights: Milford Sound, Onsen Hot Pools, Rotorua
-- Budget overview and gift-shopping checklist
-- Persistent project context for future ChatGPT sessions
+## 개발 및 배포
 
-## Privacy
+- **기술:** Vanilla HTML / CSS / JavaScript, Leaflet 지도, Progressive Web App(PWA)
+- **배포:** 이 저장소의 `main` 브랜치를 GitHub Pages로 배포합니다.
+- **UI 방향:** 크림색 배경, 절제된 강조색, 세리프 제목과 모바일 중심의 실용적 레이아웃. 홈에는 **1월 17일 출발 / 1월 29일 귀국**만 날짜 정보로 표시하며 D-day 및 박/일 통계는 표시하지 않습니다.
+- **수정 절차:** 별도 브랜치에서 구현 → 검증 및 PR → 승인된 Merge → GitHub Pages 배포 결과 확인.
 
-This repository is currently public. Do not store passport numbers, booking references, payment details, phone numbers, email addresses, insurance policy numbers, or other sensitive information in the repository.
+### 주요 파일
 
-## Structure
+| 파일 | 역할 |
+| --- | --- |
+| `PROJECT_CONTEXT.md` | 확정 예약·결정 이력·미완료 작업·보안 원칙 |
+| `itinerary.js` | 실제 화면에 표시되는 날짜별 일정의 기준 데이터 |
+| `booking-data.js` 및 `reservation-data-*.js` | 예약·현지 결제·문서 연결 정보 |
+| `index.html`, `styles.css`, `app.js` | 웹앱 화면 골격·공통 UI·기본 동작 |
+| `schedule-overview-v41.js` / `.css` | 전체 여행 시간표 |
+| `packing-data.js`, `packing-checklist.js` / `.css` | 옷차림 안내·준비물 데이터·체크 기능 |
+| `more-hub-v25.js` / `.css` | 더보기 필터 및 도구 |
+| `service-worker.js`, `pwa.js` | PWA·오프라인 캐시 |
+| `DESIGN_SYSTEM.md` | 디자인 원칙 |
 
-- `index.html`: V2 page shell and navigation
-- `styles.css`: responsive editorial/travel-app styling
-- `itinerary.js`: canonical trip data
-- `app.js`: rendering, trip-date/today state, day selector, map modes, budget, shopping interactions
-- `packing-data.js`: 여행 지역별 옷차림과 2인·공용 준비물 기준 목록
-- `packing-checklist.js` / `packing-checklist.css`: 더보기 > 준비물, 사용자별 체크리스트 UI (체크는 기기별 localStorage; 서버·Google Drive 자동 동기화 없음)
-- `PROJECT_CONTEXT.md`: long-term context and decision log
-- `README.md`: project entry point and current design direction
+여러 버전의 보조 CSS/JS가 사용되므로, 공통 UI 변경 시 `index.html`의 로드 순서와 관련 스타일 덮어쓰기를 함께 확인해야 합니다.
 
-## Map implementation
+## 새 작업 세션에서 이어하기
 
-- Leaflet 1.9.4 + OpenStreetMap tiles
-- Official Leaflet CSS/JS integrity hashes
-- Selected-day route view uses numbered HTML markers and a sequence line
-- Whole-trip map uses compact markers
-- Google Maps links are rendered below the map as a fallback even when Leaflet fails to load
+1. **`PROJECT_CONTEXT.md`**를 읽어 예약·결정 이력과 TODO를 확인합니다.
+2. **`itinerary.js`**에서 웹앱 최신 일정을 확인합니다.
+3. **`README.md`** 및 **`DESIGN_SYSTEM.md`**에서 기술·UI 방향을 확인합니다.
+4. 수정 전 현재 `main`과 대상 브랜치, 관련 소스, 기존 데이터의 영향을 점검합니다.
 
-## Run
+다음 프롬프트로 시작할 수 있습니다:
 
-Open `index.html` in a browser, or publish the repository with GitHub Pages.
+> GitHub `sh0427-han-private/honeymoon20270117` 저장소의 `PROJECT_CONTEXT.md`, `itinerary.js`, `README.md`, `DESIGN_SYSTEM.md`를 읽고 기존 신혼여행 웹앱의 확정 일정과 디자인 기준을 유지하면서 작업을 이어서 진행해 줘.
+
+## 보안 주의
+
+**이 저장소와 GitHub Pages는 공개 접근 가능**합니다. 여권번호, 생년월일, 예약번호, QR/바코드, 카드 정보, 개인 연락처, 보험증권번호 등의 민감정보를 코드·README·커밋에 저장하지 않습니다. 실제 개인 문서는 제한된 Google Drive에서 관리합니다.
+
+---
+
+최종 여행 예약 및 미확정 사항은 `PROJECT_CONTEXT.md`를 기준으로 판단하고, 날짜별 운영 일정은 `itinerary.js`를 기준으로 확인합니다.
