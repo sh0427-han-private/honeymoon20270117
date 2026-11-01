@@ -57,15 +57,15 @@ The home screen behaves like a travel magazine cover followed by an app dashboar
 Hero:
 
 - HONEYMOON EDITION label
-- Australia & New Zealand large editorial headline
+- Australia & New Zealand single-line, smaller editorial headline on home
 - travel dates and city route
-- compact departure and return date pair (2027-01-17 / 2027-01-29); no D-day, night count, or trip-day count
+- compact departure and return date pair (2027-01-17 / 2027-01-29); no D-day or total trip duration statistics in the header
 
 Below hero:
 
 - next/today itinerary card
 - three quick actions: schedule / booking / packing checklist
-- accommodation journey displayed as a horizontal route line, not individual heavy cards
+- accommodation journey displayed as a compact horizontal route line with small muted Korean night counts (3박/1박), not heavy cards
 
 No photography is used to preserve speed and consistency.
 
