@@ -354,15 +354,33 @@ const renderHomeFocus = () => {
 };
 
 const renderJourney = () => {
-    journeyStrip.innerHTML = tripData.hotels.map((hotel, index) => `
-        <article class="journey-stop">
-            <span>${String(index + 1).padStart(2, "0")}</span>
-            <strong>${escapeHtml(hotel.city)}</strong>
-            <small>${escapeHtml(hotel.dates)}</small>
-        </article>
-    `).join("");
-};
+    const tripYear = Number(TRIP_START.slice(0, 4));
+    journeyStrip.innerHTML = tripData.hotels.map((hotel, index) => {
+        const dates = hotel.dates.match(/^(\d{1,2})\/(\d{1,2})\s*→\s*(\d{1,2})\/(\d{1,2})$/);
+        let nights = null;
 
+        if (dates) {
+            const [, fromMonth, fromDay, toMonth, toDay] = dates.map(Number);
+            const arrival = Date.UTC(tripYear, fromMonth - 1, fromDay);
+            const departure = Date.UTC(
+                tripYear + (toMonth < fromMonth ? 1 : 0),
+                toMonth - 1,
+                toDay
+            );
+            const duration = (departure - arrival) / 86400000;
+            if (Number.isInteger(duration) && duration > 0) nights = duration;
+        }
+
+        return `
+            <article class="journey-stop">
+                <span>${String(index + 1).padStart(2, "0")}</span>
+                <strong>${escapeHtml(hotel.city)}</strong>
+                <small>${escapeHtml(hotel.dates)}</small>
+                ${nights === null ? "" : `<small class="journey-nights">${nights}박</small>`}
+            </article>
+        `;
+    }).join("");
+};
 const weekdayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
 const renderDateStripInto = (container) => {
