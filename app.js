@@ -582,14 +582,14 @@ const bindScheduleTimelineMapClicks = () => {
 };
 
 
-const isScheduleClock = (time) => /^([01]\\d|2[0-3]):[0-5]\\d$/.test(time || "");
+const isScheduleClock = (time) => /^([01]\d|2[0-3]):[0-5]\d$/.test(time || "");
 
 const formatScheduleNote = (note) => {
     const lines = String(note)
-        .replace(/([.!?])\\s+(?=\\S)/g, "$1\\n")
-        .replace(/\\s+(?=\\[[^\\]]+\\])/g, "\\n")
-        .replace(/\\s+→\\s+/g, "\\n→ ")
-        .split(/\\n+/)
+        .replace(/([.!?])\s+(?=\S)/g, "$1\n")
+        .replace(/\s+(?=\[[^\]]+\])/g, "\n")
+        .replace(/\s+→\s+/g, "\n→ ")
+        .split(/\n+/)
         .map((line) => line.trim())
         .filter(Boolean);
 
