@@ -1651,3 +1651,109 @@ body:has(#home-panel.active) .app-main {
     #home-panel .home-section { margin-top: 7px; }
     #home-panel .journey-stop { min-height: 74px; }
 }
+
+/* V50 · Hourly day view shares the hour/minute model of the trip overview. */
+.timeline--hourly {
+    padding: 2px 0 12px;
+}
+
+.timeline--hourly .timeline-hour-slot {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 14px;
+    padding: 10px 2px 8px;
+    border-bottom: 1px solid var(--line-strong);
+}
+
+.timeline--hourly .timeline-hour-slot:first-child {
+    margin-top: 2px;
+}
+
+.timeline--hourly .timeline-hour-label {
+    color: var(--ink);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.91rem;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.timeline--hourly .timeline-hour-count {
+    color: var(--muted);
+    font-size: 0.68rem;
+}
+
+.timeline--hourly .timeline-hour-slot--other .timeline-hour-label {
+    font-family: inherit;
+    font-size: 0.82rem;
+}
+
+.timeline--hourly .timeline-item {
+    grid-template-columns: 66px minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px 2px;
+}
+
+.timeline--hourly .timeline-item--mappable {
+    margin-inline: -8px;
+    padding-inline: 10px;
+}
+
+.timeline--hourly .timeline-time {
+    padding-top: 2px;
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: 1.45;
+}
+
+.timeline--hourly .timeline-content {
+    min-width: 0;
+}
+
+.timeline--hourly .timeline-content strong {
+    margin-top: 7px;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.timeline--hourly .timeline-notes {
+    display: grid;
+    gap: 6px;
+    max-width: 70ch;
+    margin-top: 8px;
+}
+
+.timeline--hourly .timeline-note-line {
+    margin: 0;
+    padding-left: 10px;
+    border-left: 2px solid var(--line);
+    color: var(--muted);
+    font-size: 0.76rem;
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    .timeline--hourly .timeline-item {
+        grid-template-columns: 54px minmax(0, 1fr);
+        gap: 9px;
+    }
+
+    .timeline--hourly .timeline-time {
+        font-size: 0.76rem;
+    }
+
+    .timeline--hourly .timeline-content strong {
+        font-size: 0.89rem;
+    }
+
+    .timeline--hourly .timeline-note-line {
+        padding-left: 8px;
+        font-size: 0.76rem;
+    }
+}
