@@ -72,7 +72,8 @@ No photography is used to preserve speed and consistency.
 ## Schedule
 
 - horizontally scrollable pill date selector
-- selected day shown as a flat editorial timeline
+- selected day shown as an hourly flat timeline (HH:00 sections, original HH:MM item times); non-clock notes such as '기내', '투어 중', '이후' grouped under 기타 일정
+- long schedule details split into readable paragraphs while preserving all source content; keep booking/document/map actions matched to the source item
 - schedule type badges are subtle semantic colors
 - mappable rows are tappable
 - selected schedule row gets a yellow/ink map-selection accent
