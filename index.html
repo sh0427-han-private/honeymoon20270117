@@ -14,7 +14,7 @@
     <link rel="icon" href="app-icon.svg?v=20260922-v38" type="image/svg+xml">
     <link rel="apple-touch-icon" href="app-icon.svg?v=20260922-v38">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-    <link rel="stylesheet" href="styles.css?v=20261027-v43">
+    <link rel="stylesheet" href="styles.css?v=20261101-v48">
     <link rel="stylesheet" href="schedule-overview-v41.css?v=20261027-v41">
     <link rel="stylesheet" href="enhancements.css?v=20260922-v38">
     <link rel="stylesheet" href="booking-apps.css?v=20260922-v38">
@@ -29,42 +29,41 @@
     <link rel="stylesheet" href="booking-layout-v32.css?v=20260922-v38">
     <link rel="stylesheet" href="more-hub-v25.css?v=20261101-v47">
     <link rel="stylesheet" href="packing-checklist.css?v=20261101-v47">
-    <link rel="stylesheet" href="entry-guide-v37.css?v=20260922-v38">
+    <link rel="stylesheet" href="entry-guide-v37.css?v=20261101-v48">
     <link rel="stylesheet" href="app-ux-v25.css?v=20260922-v38">
 </head>
 <body>
     <div class="site-shell">
-        <header class="editorial-hero">
-            <div class="hero-topline">
-                <span>HONEYMOON EDITION · 01</span>
-                <span>INCHEON → AUSTRALIA → NEW ZEALAND</span>
-            </div>
-            <div class="hero-copy">
-                <p class="eyebrow">OUR HONEYMOON</p>
-                <h1>Australia <span>&amp;</span><br>New Zealand</h1>
-                <p class="hero-date">17 — 29 JANUARY 2027</p>
-                <p class="hero-route">Incheon Airport · Sydney · Queenstown · Wanaka · Fairlie · Christchurch · Auckland</p>
-            </div>
-            <div class="hero-metrics" aria-label="여행 요약">
-                <div class="couple-metric">
-                    <span>TOGETHER</span>
-                    <strong class="couple-names">SANGHUN<br>&amp; JINYEONG</strong>
-                    <small>our honeymoon</small>
-                    <span id="countdown-value" hidden>D-DAY</span>
-                    <span id="countdown-caption" hidden>until departure</span>
-                </div>
-                <div><span>Stay</span><strong>12</strong><small>nights</small></div>
-                <div><span>Journey</span><strong>13</strong><small>days</small></div>
-            </div>
-        </header>
 
         <main class="app-main">
             <section class="tab-panel active" id="home-panel" aria-hidden="false">
+                <header class="editorial-hero" aria-label="신혼여행 출발일과 귀국일">
+                    <div class="hero-topline">
+                        <span>OUR HONEYMOON</span>
+                        <span>JANUARY 2027</span>
+                    </div>
+                    <div class="hero-copy">
+                        <p class="eyebrow">AUSTRALIA · NEW ZEALAND</p>
+                        <h1>Australia <span>&amp;</span><br>New Zealand</h1>
+                    </div>
+                    <div class="hero-dates">
+                        <div>
+                            <span>DEPARTURE · 출발</span>
+                            <strong>01.17</strong>
+                            <small>2027년 일요일</small>
+                        </div>
+                        <div>
+                            <span>RETURN · 귀국</span>
+                            <strong>01.29</strong>
+                            <small>2027년 금요일</small>
+                        </div>
+                    </div>
+                </header>
                 <div id="home-focus" hidden></div>
                 <div class="quick-actions" aria-label="빠른 메뉴">
                     <button type="button" class="quick-action" data-go-tab="schedule"><span>01</span><strong>일정</strong><small>타임라인 · DAY MAP</small></button>
                     <button type="button" class="quick-action" data-go-tab="bookings"><span>02</span><strong>예약</strong><small>항공 · 숙소 · 투어 · 렌터카</small></button>
-                    <button type="button" class="quick-action" data-go-tab="more"><span>03</span><strong>더보기</strong><small>준비 · 문서 · 긴급</small></button>
+                    <button type="button" class="quick-action" data-go-tab="more" data-go-more-filter="packing"><span>03</span><strong>준비물</strong><small>옷차림 · 짐 목록</small></button>
                 </div>
                 <section class="home-section">
                     <div class="section-heading compact"><div><p class="section-kicker">THE JOURNEY</p><h2>숙박 동선</h2></div></div>
@@ -124,7 +123,7 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="itinerary.js?v=20261027-v46"></script>
     <script src="packing-data.js?v=20261101-v47"></script>
-    <script src="app.js?v=20261027-v45"></script>
+    <script src="app.js?v=20261101-v48"></script>
     <script src="schedule-map-v32.js?v=20260922-v38"></script>
     <script src="time-context.js?v=20260922-v38"></script>
     <script src="schedule-fixes.js?v=20260922-v38"></script>
