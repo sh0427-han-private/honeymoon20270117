@@ -472,3 +472,14 @@ Drive 링크가 Public JS에 있어도 실제 파일 접근은 Google Drive `Res
 - 사용자 요청: 홈 제목 Australia & New Zealand를 한 줄로 표시하고 글자 크기 및 여백을 줄여 일반적인 휴대폰 첫 화면에 출발·귀국 날짜, 바로가기, 숙박 동선이 들어오도록 조정한다. 화면이 매우 작거나 여행 중 NOW/NEXT 카드가 노출되는 경우 추가 스크롤이 발생할 수 있다.
 - 숙박 동선의 각 숙소에는 회색 한글 박 수(3박/1박)를 함께 표시한다. itinerary.js 숙소 날짜로 박 수를 계산하고, 예약/결제 데이터는 변경하지 않는다.
 - 시드니 3박, 퀸스타운 3박, 와나카 1박, 페얼리 1박, 크라이스트처치 1박, 오클랜드 3박 = 해외 12박.
+
+---
+
+## 2026-11-08 · 로토루아 Cheeky Kiwi 예약 후보 기록 (사용자 요청)
+
+- 여행일 **2027-01-27(수)**, **성인 2명**, **Hilton Auckland** 숙소 픽업·왕복 희망.
+- **우선 기억할 예약 후보:** Cheeky Kiwi Travel — **Rotorua Highlights Tour including Te Puia Tour, Cultural Show and Buffet Lunch** (테푸이아 간헐천·가이드 투어 + 마오리 문화공연/하카 + 뷔페 점심). 공식 상품 링크: https://www.cheekykiwitravel.com/tours/rotorua-highlights-tour-including-te-puia-tour-cultural-show-and-buffet-lunch
+- 우선 조건: 테푸이아 필수, **전통 항이(Hāngī) 뷔페** 희망. 이 상품의 뷔페가 **항이 뷔페인지** 운영사에 최종 확인 필요. Hilton Auckland 직접 픽업/드롭 및 실제 시간도 예약 단계에서 다시 확인.
+- 참고 비교 후보: Cheeky Kiwi의 **Wai-O-Tapu + Te Puia** 코스(지열 관광지 2곳 방문)에는 항이 뷔페가 기본 포함되지 않으므로, 항이 뷔페를 원하면 일정/식사 변경 가능 여부를 문의해야 함. 두 코스를 같은 상품으로 간주하지 않는다.
+- 기존 Expedigo + Wai-O-Tapu + Te Puia + Haka 상품은 앞서 선택했던 **비교 후보**로 보유. 이번 대화에서 사용자 요청은 Cheeky Kiwi 상품을 **나중에 예약할 후보로 기억**하는 것이며, 최종 예약처·결제 확정은 아님.
+- **예약 및 결제: 미완료.** 2027-01-27 성인 2명 실시간 예약 가능 여부, 최종 2인 가격, 취소 조건은 미확인. 기존 `itinerary.js`의 Expedigo 안내는 아직 변경하지 않음(확정 예약 전 변경 보류).
