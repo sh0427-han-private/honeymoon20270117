@@ -33,9 +33,8 @@
 
     const CHECKLIST = [
         { id: "passport", title: "여권", note: "두 사람 여권 실물 · 유효기간 확인" },
-        { id: "au-eta", title: "호주 ETA", note: "출국 전 승인 상태 확인" },
-        { id: "nzeta", title: "NZeTA", note: "뉴질랜드 입국 준비" },
-        { id: "ivl", title: "IVL", note: "납부/처리 상태 확인" },
+        { id: "au-eta", title: "호주 ETA", note: "11/8 신청·외화 결제 완료 · 승인 상태 확인 필요" },
+        { id: "nzeta", title: "NZeTA + IVL", note: "11/8 신청·외화 결제 완료 · 발급 상태 확인 필요" },
         { id: "ipc", title: "호주 IPC 작성 가이드", note: "1/17 KE401 기내 작성 · 더보기 > 입국에서 확인" },
         { id: "nztd", title: "뉴질랜드 NZTD", note: "1/19 10:55 AEDT부터 두 사람 각각 제출" },
         { id: "license", title: "렌터카 운전 준비", note: "국내 면허 · 국제운전 관련 서류 확인" },
@@ -48,6 +47,18 @@
     ];
 
     const checklistKey = (id) => `honeymoon-prep-${id}`;
+
+    // 두 신청의 완료 사실을 기존 기기별 체크 상태에 한 번만 반영한다.
+    // 이후 사용자가 직접 체크를 변경하면 해당 기기의 선택을 존중한다.
+    const completedApplicationsMigrationKey = "honeymoon-prep-eta-nzeta-paid-20261108-v1";
+    try {
+        if (localStorage.getItem(completedApplicationsMigrationKey) !== "true") {
+            ["au-eta", "nzeta"].forEach((id) => localStorage.setItem(checklistKey(id), "true"));
+            localStorage.setItem(completedApplicationsMigrationKey, "true");
+        }
+    } catch (error) {
+        // 저장소를 차단한 브라우저에서는 기존 체크리스트 로직에 맡긴다.
+    }
 
     const renderChecklist = (force = false) => {
         const panel = document.querySelector("#more-panel");
