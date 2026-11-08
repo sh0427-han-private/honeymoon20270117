@@ -247,7 +247,7 @@
         const stops = [...document.querySelectorAll("#journey-strip .journey-stop")];
         stops.forEach((stop, index) => {
             if (stop.querySelector(".journey-map-link")) return;
-            const target = bookingData.hotels[index];
+            const target = bookingData.hotels.filter((hotel) => hotel.key !== "incheon-ibis-t2")[index];
             if (!target) return;
 
             const link = document.createElement("a");

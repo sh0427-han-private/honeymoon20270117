@@ -69,6 +69,29 @@ const bookingData = {
     ],
     hotels: [
         {
+            key: "incheon-ibis-t2",
+            status: "예약 완료",
+            mapQuery: "ibis Styles Ambassador Incheon Airport T2, 340 Je2terminal-daero, Jung-gu, Incheon 22382, South Korea",
+            mapLabel: "위치 열기 ↗",
+            payment: {
+                status: "unknown",
+                currency: "KRW",
+                amountDue: null,
+                timing: "Agoda 예약 · NAVER Pay 표기",
+                method: "unknown",
+                cashRequired: false,
+                note: "예약 금액 183,900원(사용자 확인). 실청구·사전결제 확인 전. 환불 불가. 예약주차장은 별도 예약 예정."
+            },
+            documents: [
+                {
+                    label: "예약확인서 · 한영",
+                    fileName: "20270116-20270117_ICN_IBIS_STYLES_AMBASSADOR_T2_VOUCHER_KO-EN.pdf",
+                    url: "https://drive.google.com/file/d/1BpPh5uPaXaxk6mLixX2MHTZfPfqPPXJz/view?usp=drivesdk"
+                }
+            ],
+            confirmationUrl: null
+        },
+        {
             key: "sydney-meriton",
             status: "예약 완료",
             mapQuery: "Meriton Suites Campbell Street, 6 Campbell Street, Haymarket NSW 2000, Australia",

@@ -355,7 +355,7 @@ const renderHomeFocus = () => {
 
 const renderJourney = () => {
     const tripYear = Number(TRIP_START.slice(0, 4));
-    journeyStrip.innerHTML = tripData.hotels.map((hotel, index) => {
+    journeyStrip.innerHTML = tripData.hotels.filter((hotel) => hotel.city !== "Incheon").map((hotel, index) => {
         const dates = hotel.dates.match(/^(\d{1,2})\/(\d{1,2})\s*→\s*(\d{1,2})\/(\d{1,2})$/);
         let nights = null;
 

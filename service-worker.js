@@ -1,4 +1,4 @@
-const CACHE_VERSION = "honeymoon-v50";
+const CACHE_VERSION = "honeymoon-v52";
 const APP_SHELL = [
   "./",
   "./index.html",
