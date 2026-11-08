@@ -21,13 +21,14 @@ const tripData = {
                     time: "03:20",
                     title: "기상 · 출국 준비 및 숙소 체크아웃",
                     type: "note", planStatus: "fixed",
-                    note: "04:20 공항 이동에 맞춰 1시간 전 기상(사용자 확정). 1/16 인천공항 근처 숙소는 아직 미예약. 셀토스 T2 예약주차장 1/16~1/29 이용 결정(예약은 미완료)"
+                    note: "04:20 공항 이동에 맞춰 1시간 전 기상(사용자 확정). 1/16 ibis Styles Ambassador Incheon Airport T2 숙박 확정(1박, 2인). T2 예약주차장 1/16~1/29 이용 예정(주차장 미예약)"
                 },
                 {
                     time: "04:20",
-                    title: "인천공항 인근 숙소 출발 · 제2여객터미널 이동",
+                    title: "이비스 스타일 앰배서더 인천 에어포트 T2 출발 · 제2여객터미널 이동",
                     type: "transport", planStatus: "planned",
-                    note: "1/16 셀토스 T2 예약주차장 장기주차 예정(미예약). 다락휴 T2 20:00 Overnight 1박을 검토 중(미예약). 05:00 T2 도착 목표, 다락휴 예약 시 T2 내부 도보 이동으로 조정"
+                    bookingKey: "incheon-ibis-t2",
+                    note: "1/16 이비스 스타일 앰배서더 인천 에어포트 T2 예약 완료. 1/17 04:20 숙소 출발·05:00 T2 도착 목표는 계획 시각으로, 호텔↔T2 새벽 셔틀 운행 여부·첫차/택시·이동시간을 사전 확인해야 함. 셀토스 T2 예약주차장 1/16~1/29 이용 예정(아직 미예약)"
                 },
                 {
                     time: "05:00",
@@ -309,7 +310,7 @@ const tripData = {
             category: "국제선",
             countries: "대한민국 → 호주",
             route: "ICN → SYD",
-            airportTransfer: "03:15 · 용인 출발",
+            airportTransfer: "04:20 · 인천 이비스 스타일 T2 출발 예정",
             airportTarget: "05:00 · 인천공항 T2 도착 목표",
             departure: "08:00 KST",
             departurePlace: "ICN · 제2여객터미널",
@@ -361,6 +362,7 @@ const tripData = {
         }
     ],
     hotels: [
+        { city: "Incheon", dates: "1/16 → 1/17", name: "ibis Styles Ambassador Incheon Airport T2", price: 183900 },
         { city: "Sydney", dates: "1/17 → 1/20", name: "Meriton Suites Campbell Street", price: 811000 },
         { city: "Queenstown", dates: "1/20 → 1/23", name: "Hampshire Holiday Parks Queenstown Lakeview", price: 734799 },
         { city: "Wanaka", dates: "1/23 → 1/24", name: "Edgewater Hotel", price: 483929 },
