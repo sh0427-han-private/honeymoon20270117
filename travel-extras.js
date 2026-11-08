@@ -33,6 +33,8 @@
 
     const CHECKLIST = [
         { id: "passport", title: "여권", note: "두 사람 여권 실물 · 유효기간 확인" },
+        { id: "icn-ibis", title: "1/16 인천공항 숙소", note: "이비스 스타일 T2 예약 완료 · 새벽 T2 이동 방법 확인 필요" },
+        { id: "t2-parking", title: "T2 장기주차 예약", note: "1/16~1/29 셀토스 · 12/2 이후 예약 예정(입차 시각에 따라 달라짐)" },
         { id: "au-eta", title: "호주 ETA", note: "11/8 신청·외화 결제 완료 · 승인 상태 확인 필요" },
         { id: "nzeta", title: "NZeTA + IVL", note: "11/8 신청·외화 결제 완료 · 발급 상태 확인 필요" },
         { id: "ipc", title: "호주 IPC 작성 가이드", note: "1/17 KE401 기내 작성 · 더보기 > 입국에서 확인" },
@@ -51,6 +53,7 @@
     // 두 신청의 완료 사실을 기존 기기별 체크 상태에 한 번만 반영한다.
     // 이후 사용자가 직접 체크를 변경하면 해당 기기의 선택을 존중한다.
     const completedApplicationsMigrationKey = "honeymoon-prep-eta-nzeta-paid-20261108-v1";
+    const icnStayMigrationKey = "honeymoon-prep-incheon-ibis-20261108-v1";
     try {
         if (localStorage.getItem(completedApplicationsMigrationKey) !== "true") {
             ["au-eta", "nzeta"].forEach((id) => localStorage.setItem(checklistKey(id), "true"));
@@ -58,6 +61,14 @@
         }
     } catch (error) {
         // 저장소를 차단한 브라우저에서는 기존 체크리스트 로직에 맡긴다.
+    }
+    try {
+        if (localStorage.getItem(icnStayMigrationKey) !== "true") {
+            localStorage.setItem(checklistKey("icn-ibis"), "true");
+            localStorage.setItem(icnStayMigrationKey, "true");
+        }
+    } catch (error) {
+        // 저장소 차단 환경에서는 기존 체크리스트 동작만 유지한다.
     }
 
     const renderChecklist = (force = false) => {
